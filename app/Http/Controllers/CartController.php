@@ -216,13 +216,13 @@ class CartController extends Controller
         'payment_method_types' => ['card'],
         'line_items' => [$lineItems],
         'mode' => 'payment',
-        'success_url' => route('user.cart.success') . '?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => route('user.cart.cancel'),
+        'success_url' => route('cart.success') . '?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => route('cart.cancel'),
     ]);
 
     $publicKey = env('STRIPE_PUBLIC_KEY');
 
-    return view('user.checkout', compact('session', 'publicKey'));
+    return view('cart.checkout', compact('session', 'publicKey'));
 }
 
 public function success(Request $request)
@@ -300,7 +300,7 @@ public function success(Request $request)
 
     Cart::where('user_id', Auth::id())->delete();
 
-    return redirect()->route('user.cart.index');
+    return redirect()->route('cart.index');
 }
 
 public function cancel()
@@ -315,7 +315,7 @@ public function cancel()
             'quantity' => $product->pivot->quantity
         ]);
     }
-    return redirect()->route('user.cart.index');
+    return redirect()->route('cart.index');
 }
 
 }

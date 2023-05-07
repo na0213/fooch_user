@@ -13,7 +13,7 @@ class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:users');
+        $this->middleware('auth');
     }
 
     public function index()
@@ -23,7 +23,7 @@ class OrderController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-       return view('user.order.index', compact('orders','user'));
+       return view('order.index', compact('orders','user'));
     }
 
     public function show(Order $order)
@@ -33,7 +33,7 @@ class OrderController extends Controller
             abort(403);
         }
 
-        return view('user.order.show', compact('order'));
+        return view('order.show', compact('order'));
     }
 
     public function updateStatus(Order $order)
@@ -48,6 +48,6 @@ class OrderController extends Controller
             $order->update(['order_status' => 'completed']);
         }
 
-        return redirect()->route('user.order.show', $order->id)->with('status', '配送ステータスが更新されました');
+        return redirect()->route('order.show', $order->id)->with('status', '配送ステータスが更新されました');
     }
 }

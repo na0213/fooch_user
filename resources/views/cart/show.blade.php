@@ -9,7 +9,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-        <form method="POST" action="{{ route('user.cart.checkout') }}">
+        <form method="POST" action="{{ route('cart.checkout') }}">
             @csrf
             <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                 <div class="space-y-6">
@@ -138,7 +138,7 @@
                     @else
                     <div>カード情報を登録してください</div>
                     @endif
-                    <button onclick="location.href='{{ route('user.payment.index') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">カード情報登録</button>
+                    {{-- <button onclick="location.href='{{ route('payment.index') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">カード情報登録</button> --}}
                 </div>
             </div>
             </div>
