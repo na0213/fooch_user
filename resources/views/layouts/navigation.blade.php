@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __(' FOOCH') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
+                    <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                         {{ __('商品一覧') }}
                     </x-nav-link>
                 </div>
@@ -73,7 +73,7 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('FOOCH') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('home.index')" :active="request()->routeIs('home.index')">
+            <x-responsive-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
                 {{ __('商品一覧') }}
             </x-responsive-nav-link>
         </div>

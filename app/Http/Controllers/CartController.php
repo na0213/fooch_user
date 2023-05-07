@@ -49,7 +49,7 @@ class CartController extends Controller
             $totalShippingFee += $shippingFee;
         }
 
-        return view('user.cart.index', [
+        return view('cart.index', [
             'display_items' => $displayItems,
             'total_price' => $totalPrice,
             'total_shipping_fee' => $totalShippingFee,
@@ -86,7 +86,7 @@ class CartController extends Controller
             $totalShippingFee += $shippingFee;
         }
 
-        return view('user.cart.show', [
+        return view('cart.show', [
             'display_items' => $displayItems,
             'total_price' => $totalPrice,
             'total_shipping_fee' => $totalShippingFee,
@@ -125,7 +125,7 @@ class CartController extends Controller
             ]);
         }
         // dd('test');
-        return redirect()->route('user.cart.index');
+        return redirect()->route('cart.index');
     }
 
     // カート削除
@@ -135,7 +135,7 @@ class CartController extends Controller
         ->where('user_id', Auth::id())
         ->delete();
 
-        return redirect()->route('user.cart.index');
+        return redirect()->route('cart.index');
     }
 
     public function getShippingFee($prefecture)

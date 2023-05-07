@@ -7,7 +7,7 @@
     <div class="py-6">
         <div class ="flex justify-between items-center">
             <div>
-                <form method="get" action="{{ route('home.index') }}">
+                <form method="get" action="{{ route('items.index') }}">
                     <div class="flex">
                         <div>
                             <span class="text-sm">表示順</span><br>
@@ -69,7 +69,7 @@
                     <div class="flex flex-wrap">
                         @foreach($products as $product)
                             <div class="w-1/4 p-2 md:p-4">
-                                {{-- <a href="{{ route('user.items.show', ['item' => $product->id ]) }}"> --}}
+                                <a href="{{ route('items.show', ['item' => $product->id ]) }}">
                                     @if(!empty($product->productImages[0]->image))
                                     <img src="{{ config('aws.S3.url').'/'.$product->productImages[0]->image }}" id="sort_num" alt="..." class="img-thumbnail">
                                     @else
@@ -81,7 +81,8 @@
                                     @endif
                                     @endforeach 
                                     <p class="test leading-relaxed font-semibold">{{ $product->name }}</p>
-                                    <p class="mt-1">{{ number_format($product->price_with_tax) }}<span class="text-sm text-gray-700">円(税込)</span></p>        
+                                    <p class="mt-1">{{ number_format($product->price) }}<span class="text-sm text-gray-700">円(税込)</span></p>        
+                                    {{-- <p class="mt-1">{{ number_format($product->price_with_tax) }}<span class="text-sm text-gray-700">円(税込)</span></p>         --}}
                                 </a>
                             </div>
                         @endforeach
@@ -94,14 +95,14 @@
             </div>
         </div>
     </div>
-    <script>
-        const select = document.getElementById('sort')
-        select.addEventListener('change', function(){
-          this.form.submit()
-        })
-        const paginate = document.getElementById('pagination')
-        paginate.addEventListener('change', function(){
-          this.form.submit()
-        })
-    </script>
-    </x-app-layout>
+<script>
+    const select = document.getElementById('sort')
+    select.addEventListener('change', function(){
+        this.form.submit()
+    })
+    const paginate = document.getElementById('pagination')
+    paginate.addEventListener('change', function(){
+        this.form.submit()
+    })
+</script>
+</x-app-layout>
