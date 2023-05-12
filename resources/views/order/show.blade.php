@@ -126,7 +126,8 @@
                     </div>
       
                       <div class="p-2 w-full flex justify-around mt-4">
-                        <button type="button" onclick="location.href='{{ route('order.index') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400">戻る</button>                  </div>
+                        <button type="button" onclick="location.href='{{ route('order.index') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400">戻る</button>
+                     </div>
       
                   </div>
             </div>

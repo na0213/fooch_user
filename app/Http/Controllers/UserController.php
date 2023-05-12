@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -26,7 +29,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = User::with('shipping_address')->findOrFail(Auth::id());
+        $user = User::findOrFail(Auth::id());
 
         return view('user.index', compact('user'));
     }

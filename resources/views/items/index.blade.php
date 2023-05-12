@@ -75,6 +75,7 @@
                                     @else
                                         <img src="../../../images/noimage.jpg" class="img-thumbnail">
                                     @endif
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->store_name }}</h3> 
                                     @foreach($categories as $index => $category_name)
                                     @if($index === $product->category_id)
                                     <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $category_name }}</h3> 

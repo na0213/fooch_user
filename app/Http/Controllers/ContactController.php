@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('user.contact.index');
+        return view('contact.index');
     }
 
     public function confirm(Request $request)
@@ -23,7 +23,7 @@ class ContactController extends Controller
 
         $inputs = $request->all();
 
-        return view('user.contact.confirm', ['inputs' => $inputs,]);
+        return view('contact.confirm', ['inputs' => $inputs,]);
     }
 
     public function send(Request $request)
@@ -43,7 +43,7 @@ class ContactController extends Controller
         //actionの値で分岐
         if($action !== 'submit'){
             return redirect()
-                ->route('user.contact.index')
+                ->route('contact.index')
                 ->withInput($inputs);
         } else {
             //メールを送信
@@ -55,7 +55,7 @@ class ContactController extends Controller
             $request->session()->regenerateToken();
 
             //送信完了ページのviewを表示
-            return view('user.contact.thanks');
+            return view('contact.thanks');
             
         }
     }

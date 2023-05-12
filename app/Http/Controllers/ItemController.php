@@ -46,6 +46,9 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
+// 実行されるクエリを表示
+\Log::debug('Query: ', ['query' => Product::availableItems($request->exclusion_id)->toSql()]);
+
         $products = $products->unique('id');
 
 

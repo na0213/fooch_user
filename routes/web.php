@@ -6,6 +6,8 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/index',  [ItemController::class, 'index'])->name('items.index');
     Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
 
+    //店舗
+    Route::get('/stores/{store}', [StoreController::class, 'show'])->name('store.show');
+
     //カート
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/cart/show', [CartController::class, 'show'])->name('cart.show');
@@ -51,6 +56,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //お問合せ
+    Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+    Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+    Route::post('/contact/thanks', [ContactController::class, 'send'])->name('contact.send');
 });
 
 //カートと支払い

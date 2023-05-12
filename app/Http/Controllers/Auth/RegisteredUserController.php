@@ -27,6 +27,7 @@ class RegisteredUserController extends Controller
     public function check(Request $request): View
     {
         $request->validate([
+            'terms' => ['required', 'accepted'],
             'name' => ['required', 'string', 'max:255'],
             'name_pronunciation' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],

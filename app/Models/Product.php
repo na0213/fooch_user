@@ -91,7 +91,6 @@ class Product extends Model
         return $this->belongsToMany(User::class, 'orders', 'user_id', 'product_id');
     }
 
-
     public function scopeAvailableItems($query, $exclusionId)
     {
         $stocks = DB::table('stocks')
@@ -99,11 +98,8 @@ class Product extends Model
         DB::raw('sum(quantity) as quantity'))
         ->groupBy('product_id')
         ->having('quantity', '>', 1);
-        
-        $exclusions = DB::table('exclusion_product')
-        ->select('exclusion_id','product_id');
 
-        $exclusions_obj = DB::table('exclusion_product')
+        $exclusions = DB::table('exclusion_product')
         ->where(function($q) use($exclusionId){
             if($exclusionId == '')
             {
@@ -115,25 +111,20 @@ class Product extends Model
             } else
             {
                 foreach($exclusionId as $item){
-                // dd($exclusion->exclusion_id);
-                $q->orWhere('exclusion_id', '=', intval($item));
+                    $q->orWhere('exclusion_id', '=', intval($item));
                 }
             }
         })
         ->select('product_id')
-        ->distinct('product_id')
-        ->get();
-
-        // dd($exclusions_obj);
+        ->distinct('product_id');
 
         return $query
-        ->where(function($q) use($exclusions_obj){
-            foreach($exclusions_obj as $item){
-                $q->where('products.id', '!=', intval($item->product_id));
-            }
-        })
-        ->joinSub($exclusions, 'exclusion', function($join) use($exclusionId){
+        ->leftJoinSub($exclusions, 'exclusion', function($join){
             $join->on('products.id', '=', 'exclusion.product_id');
+        })
+        ->where(function($q){
+            $q->whereNull('exclusion.product_id')
+            ->orWhere('exclusion.product_id', '!=', DB::raw('products.id'));
         })
         ->joinSub($stocks, 'stock', function($join){
             $join->on('products.id', '=', 'stock.product_id');
@@ -143,13 +134,13 @@ class Product extends Model
         ->leftJoin('shipping_patterns', 'products.shipping_patterns_id', '=', 'shipping_patterns.id')
         ->join('stores as product_stores', 'products.store_id', '=', 'product_stores.id')
         ->where('products.is_selling', true)
+        ->where('products.status', 'using')
         ->select('products.id as id',
         'products.name as name',
         'products.price as price',
         'products.info as info',
         'products.category_id as category_id',
         'product_images.image as image',
-        'exclusion.exclusion_id as exclusion_id',
         'products.ingredients',
         'products.additives',
         'products.expiration',
@@ -158,6 +149,75 @@ class Product extends Model
         'product_stores.name as store_name',
         );
     }
+
+
+    // public function scopeAvailableItems($query, $exclusionId)
+    // {
+    //     $stocks = DB::table('stocks')
+    //     ->select('product_id',
+    //     DB::raw('sum(quantity) as quantity'))
+    //     ->groupBy('product_id')
+    //     ->having('quantity', '>', 1);
+        
+    //     $exclusions = DB::table('exclusion_product')
+    //     ->select('exclusion_id','product_id');
+
+    //     $exclusions_obj = DB::table('exclusion_product')
+    //     ->where(function($q) use($exclusionId){
+    //         if($exclusionId == '')
+    //         {
+    //             $q->where('exclusion_id', '=', 0);
+    //         }
+    //         elseif($exclusionId <= 1)
+    //         {
+    //             $q->where('exclusion_id', '<>', intval($exclusionId));
+    //         } else
+    //         {
+    //             foreach($exclusionId as $item){
+    //             // dd($exclusion->exclusion_id);
+    //             $q->orWhere('exclusion_id', '=', intval($item));
+    //             }
+    //         }
+    //     })
+    //     ->select('product_id')
+    //     ->distinct('product_id')
+    //     ->get();
+
+    //     // dd($exclusions_obj);
+
+    //     return $query
+    //     ->where(function($q) use($exclusions_obj){
+    //         foreach($exclusions_obj as $item){
+    //             $q->where('products.id', '!=', intval($item->product_id));
+    //         }
+    //     })
+    //     ->joinSub($exclusions, 'exclusion', function($join) use($exclusionId){
+    //         $join->on('products.id', '=', 'exclusion.product_id');
+    //     })
+    //     ->joinSub($stocks, 'stock', function($join){
+    //         $join->on('products.id', '=', 'stock.product_id');
+    //     })
+    //     ->join('product_images', 'products.id', '=', 'product_images.product_id')
+    //     ->where('product_images.sort_num', '0')
+    //     ->leftJoin('shipping_patterns', 'products.shipping_patterns_id', '=', 'shipping_patterns.id')
+    //     ->join('stores as product_stores', 'products.store_id', '=', 'product_stores.id')
+    //     ->where('products.is_selling', true)
+    //     ->where('products.status', 'using')
+    //     ->select('products.id as id',
+    //     'products.name as name',
+    //     'products.price as price',
+    //     'products.info as info',
+    //     'products.category_id as category_id',
+    //     'product_images.image as image',
+    //     'exclusion.exclusion_id as exclusion_id',
+    //     'products.ingredients',
+    //     'products.additives',
+    //     'products.expiration',
+    //     'products.allergy',
+    //     'products.sort_order as sort_order',
+    //     'product_stores.name as store_name',
+    //     );
+    // }
 
     public function scopeSortOrder($query, $sortOrder)
     {

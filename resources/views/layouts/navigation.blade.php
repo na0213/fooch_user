@@ -19,7 +19,16 @@
                         {{ __('商品一覧') }}
                     </x-nav-link>
                     <x-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
-                        {{ __('購入一覧') }}
+                        {{ __('購入履歴') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                        {{ __('マイページ') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                        {{ __('お問合せ') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
+                        {{ __('カート') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -80,7 +89,16 @@
                 {{ __('商品一覧') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('order.index')" :active="request()->routeIs('order.index')">
-                {{ __('購入一覧') }}
+                {{ __('購入履歴') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
+                {{ __('マイページ') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                {{ __('お問合せ') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
+                {{ __('カート') }}
             </x-responsive-nav-link>
         </div>
 

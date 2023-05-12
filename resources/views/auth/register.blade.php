@@ -105,20 +105,31 @@
     
                     <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                 </div>
-    
-                <div class="flex items-center justify-end mt-4">
-                    {{-- <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                        {{ __('Already registered?') }}
-                    </a> --}}
-    
-                    <x-primary-button class="ml-4">
+
+                <div class="mt-4">
+                    <div class="flex items-center"> <!-- ここで新しい flex コンテナを作成します -->
+                        <!-- Terms Agreement -->
+                        <div>
+                            <label for="terms" class="inline-flex items-center">
+                                <input id="terms" type="checkbox" name="terms" required>
+                                <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-blue-500">{{ __('利用規約に同意しました') }}</a></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 flex justify-center">
+                    <x-primary-button>
                         確認
                     </x-primary-button>
                 </div>
+
             </form>
-            <button type="button " onclick="window.location.href='{{ route('welcome') }}'" class="bg-gray-400 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700">
-                戻る
-            </button>
+            <div class="mt-6 flex justify-center">
+                <button type="button " onclick="window.location.href='{{ route('welcome') }}'" class="bg-gray-400 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700">
+                    戻る
+                </button>
+            </div>
             </div>
         </div>
         <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>

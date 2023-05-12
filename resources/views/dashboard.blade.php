@@ -32,7 +32,7 @@
                 </div>
             </section>
     
-            <form method="get" action="{{ route('dashboard') }}">
+            <form method="get" action="{{ route('items.index') }}">
                 <div class="row">
                 <div class="col-12">
                     <p class="h5 mr-5 ml-5">キーワード</p>
@@ -76,13 +76,14 @@
                     <div class="flex flex-wrap">
                         @foreach ($products as $product)
                             <div class="w-1/4 p-2 md:p-4">
-                                {{-- <a href="{{ route('user.items.show', ['item' => $product->id ]) }}"> --}}
+                                <a href="{{ route('items.show', ['item' => $product->id ]) }}">
                                     <div class="mt-4">
                                         @if($product->image !=='')
                                         <img src="{{ config('aws.S3.url').'/'.$product->image }}" alt="..." class="img-thumbnail">
                                         @else
                                         <img src="../../images/noimage.jpg" alt="..." class="img-thumbnail">
                                         @endif
+                                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->store_name }}</h3> 
                                         @foreach($categories as $index => $category_name)
                                         @if($index === $product->category_id)
                                         <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $category_name }}</h3> 
