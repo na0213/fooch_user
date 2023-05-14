@@ -23,7 +23,14 @@
     "Reset Password":"パスワードリセット",
     "Send Password Reset Link":"パスワードリセットリンク送信",
     "Logout":"ログアウト",
+    "Log Out":"ログアウト",
     "prefecture":"都道府県",
+
+    "Hello!":"ご登録ありがとうございます！",
+    "Please click the button below to verify your email address.":"以下のボタンをクリックして、メール登録を完了してください。",
+    "Regards,":"よろしくお願いいたします。",
+    "If you're having trouble clicking the":"もし、",
+    "button, copy and paste the URL below into your web browser":"ボタンが機能しない場合は、次のURLをコピーしてWebブラウザに貼り付けてください。",
 
     "Verify Your Email Address":"ユーザ登録を完了してください",
     "A fresh verification link has been sent to your email address.":"新しいリンクをあなたのメールアドレスに送信しました。",
@@ -33,7 +40,7 @@
 
     "Please click the link below to verify your email address.":"メールアドレスを確認するために下のリンクをクリックしてください。",
     "Verify Email Address":"メールアドレス確認",
-    "If you did not create an account, no further action is required.":"心当たりがない場合は、本メッセージは破棄してください。",
+    "If you did not create an account, no further action is required.":"お心当たりがない場合は、本メッセージは破棄してください。",
 
     "Click button below and reset password.":"下のボタンをクリックしてパスワードを再設定してください。",
     "Reset password":"パスワードリセット",

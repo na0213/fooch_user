@@ -8,11 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Product;
-// use App\Models\ShippingAddress;
+use App\Models\ShippingAddress;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -46,8 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Product::class, 'carts') //第二引数：cart中間テーブル
         ->withPivot(['id', 'quantity']); //中間テーブルで必要な情報
     }
-    // public function shipping_address()
-    // {
-    //     return $this->hasOne(ShippingAddress::class);
-    // }
+    public function shipping_address()
+    {
+        return $this->hasOne(ShippingAddress::class);
+    }
 }

@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Carbon\Carbon;
+use Carbon\Exceptions\InvalidDateException;
+use Symfony\Component\HttpFoundation\Response as BaseResponse;
 
 class RegisteredUserController extends Controller
 {
@@ -24,7 +26,7 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    public function check(Request $request): View
+    public function check(Request $request): BaseResponse
     {
         $request->validate([
             'terms' => ['required', 'accepted'],
@@ -47,14 +49,15 @@ class RegisteredUserController extends Controller
 
         try {
             $birthdate = Carbon::create($birth_year, $birth_month, $birth_day);
-        } catch (Exception $e) {
-            return back()->withErrors(['birthdate' => '正しい生年月日を入力してください。']);
+        } catch (InvalidDateException $e) {
+        // } catch (Exception $e) {
+            return back()->withErrors(['birthdate' => '正しい生年月日を入力してください。'])->withInput();
         }
     
         $now = Carbon::now();
         $age = $birthdate->diffInYears($now);
         if ($age < 18) {
-            return back()->withErrors(['birthdate' => '18歳未満の方は登録できません。']);
+            return back()->withErrors(['birthdate' => '18歳未満の方は登録できません。'])->withInput();
         }
         $request->flashOnly( 'name','name_pronunciation','email','tel','age','zipcode','city');
     
@@ -72,8 +75,8 @@ class RegisteredUserController extends Controller
             'birth_month' => $request->birth_month,
             'birth_day' => $request->birth_day,
         ];
-    
-        return view('auth.check', ['data' => $data]);
+        return response()->view('auth.check', ['data' => $data]);
+        // return view('auth.check', ['data' => $data]);
     }
     
     public function store(Request $request): RedirectResponse

@@ -51,7 +51,29 @@ Route::middleware('auth')->group(function () {
     Route::patch('/order/{order}/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
 
     //ユーザー
-    Route::resource('user', UserController::class)->except(['show']);
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    // Edit name
+    Route::get('/user/{user}/edit-name', [UserController::class, 'editName'])->name('user.edit.name');
+    // Edit address
+    Route::get('/user/{user}/edit-address', [UserController::class, 'editAddress'])->name('user.edit.address');
+    // Edit tel
+    Route::get('/user/{user}/edit-tel', [UserController::class, 'editTel'])->name('user.edit.tel');
+    // Edit mail
+    Route::get('/user/{user}/edit-mail', [UserController::class, 'editMail'])->name('user.edit.mail');
+    // Edit birth
+    Route::get('/user/{user}/edit-birth', [UserController::class, 'editBirth'])->name('user.edit.birth');
+
+    // Update name
+    Route::put('/user/{user}/update-name', [UserController::class, 'updateName'])->name('user.update.name');
+    // Update address
+    Route::put('/user/{user}/update-address', [UserController::class, 'updateAddress'])->name('user.update.address');
+    // Update tel
+    Route::put('/user/{user}/update-tel', [UserController::class, 'updateTel'])->name('user.update.tel');
+    // Update mail
+    Route::put('/user/{user}/update-mail', [UserController::class, 'updateMail'])->name('user.update.mail');
+    // Update birth
+    Route::put('/user/{user}/update-birth', [UserController::class, 'updateBirth'])->name('user.update.birth');
+
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

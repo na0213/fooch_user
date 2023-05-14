@@ -12,10 +12,10 @@
 
     @foreach ($purchasedItems as $item)
         <p>購入内容:</p>
+        <p>店舗名: {{ $item['store_name'] }}</p>
         <p>商品名: {{ $item['name'] }}</p>
         <p>購入数量: {{ $item['quantity'] }}</p>
         <p>金額: {{ $item['price'] * $item['quantity'] }} 円</p>
-        <p>店舗問い合わせ先: {{ $item['store_email'] }}</p>
         <hr>
     @endforeach
 

@@ -20,11 +20,6 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string('name');
-            $table->string('email');
-            $table->string('zipcode')->nullable();
-            $table->string('prefecture')->nullable();
-            $table->string('city')->nullable();
-            $table->string('tel')->nullable();
             $table->text('info')->nullable();
             $table->string('logo')->nullable();
             $table->string('image')->nullable();

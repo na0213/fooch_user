@@ -32,6 +32,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->datetime('created_at');
             $table->datetime('updated_at');
+            $table->softDeletes();
         });
     }
 

@@ -75,6 +75,11 @@ class Product extends Model
         return $this->hasMany(Stock::class);
     }
 
+    public function getStockQuantity()
+    {
+        return $this->stock->sum('quantity');
+    }
+
     public function productImages()
     {
         return $this->hasMany(ProductImage::class);
@@ -97,7 +102,7 @@ class Product extends Model
         ->select('product_id',
         DB::raw('sum(quantity) as quantity'))
         ->groupBy('product_id')
-        ->having('quantity', '>', 1);
+        ->having('quantity', '>=', 0);
 
         $exclusions = DB::table('exclusion_product')
         ->where(function($q) use($exclusionId){
