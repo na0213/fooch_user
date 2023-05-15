@@ -102,7 +102,7 @@ class Product extends Model
         ->select('product_id',
         DB::raw('sum(quantity) as quantity'))
         ->groupBy('product_id')
-        ->having('quantity', '>', 1);
+        ->where('quantity', '>', 1);
 
         $exclusions = DB::table('exclusion_product')
         ->where(function($q) use($exclusionId){
