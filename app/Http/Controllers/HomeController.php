@@ -35,8 +35,8 @@ class HomeController extends Controller
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
-        ->sortOrder($request->sort)
-        ->paginate($request->pagination ?? '20');
+        ->sortOrder($request->sort);
+        // ->paginate($request->pagination ?? '20');
 
         $products = $products->unique('id');
 
