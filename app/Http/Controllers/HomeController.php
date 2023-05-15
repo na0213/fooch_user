@@ -38,7 +38,7 @@ class HomeController extends Controller
         ->sortOrder($request->sort);
         // ->paginate($request->pagination ?? '20');
 
-        $products = $products->unique('id');
+        // $products = $products->unique('id');
 
 
         return view('dashboard', compact('products','categories','exclusions'));
