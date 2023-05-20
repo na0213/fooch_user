@@ -1,13 +1,9 @@
 <x-guest-layout>
-    {{-- <x-app-layout> --}}
-        <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <div class="py-12 px-5">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <h2 class="mb-5 font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('新規登録') }}
             </h2>
-        </x-slot>
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-    
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
             <form method="POST" action="{{ route('register.check') }}">
                 @csrf
     
@@ -15,14 +11,14 @@
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">名前</label>
-                        <input type="text" id="name" name="name" value="{{  old('name') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="name" name="name" value="{{  old('name') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <!-- name_pronunciation -->
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">フリガナ</label>
-                        <input type="text" id="name_pronunciation" name="name_pronunciation" value="{{  old('name_pronunciation') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="name_pronunciation" name="name_pronunciation" value="{{  old('name_pronunciation') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 {{-- zipcode --}}
@@ -30,33 +26,33 @@
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">郵便番号（ハイフン不要）</label>
                         <input type="text" id="zipcode" name="zipcode" maxlength="8" onKeyUp="AjaxZip3.zip2addr('zipcode','','prefecture','city');" value="{{ old('zipcode') }}" 
-                        required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="1030013"/>
+                        required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="1030013"/>
                     </div>
                 </div>
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">都道府県</label>
-                        <input type="text" id="prefecture" name="prefecture" value="{{  old('prefecture') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="prefecture" name="prefecture" value="{{  old('prefecture') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">市町村以降</label>
-                        <input type="text" id="city" name="city" value="{{  old('city') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="city" name="city" value="{{  old('city') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 {{-- tel --}}
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">電話番号（ハイフン不要）</label>
-                        <input type="text" id="tel" name="tel" value="{{  old('tel') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="tel" name="tel" value="{{  old('tel') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <!-- Email Address -->
                 <div class="p-2 w-2/2 mx-auto">
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">メールアドレス</label>
-                        <input type="text" id="email" name="email" value="{{  old('email') }}" required class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <input type="text" id="email" name="email" value="{{  old('email') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                     </div>
                 </div>
                 <!-- Birth -->
@@ -64,19 +60,19 @@
                     <div class="relative">
                         <label for="name" class="leading-7 text-sm text-gray-600">生年月日　※18歳未満の方は登録できません</label>
                         <div>
-                        <select id="birth_year" name="birth_year" required class="w-2/5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <select id="birth_year" name="birth_year" required class="w-2/5 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             <option value="">年</option>
                             @for($i = date('Y'); $i >= 1900; $i--)
                                 <option value="{{ $i }}" {{ $i == old('birth_year') ? 'selected' : '' }}>{{ $i }}年</option>
                             @endfor
                         </select>
-                        <select id="birth_month" name="birth_month" required class="w-1/5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <select id="birth_month" name="birth_month" required class="w-1/5 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             <option value="">月</option>
                             @for($i = 1; $i <= 12; $i++)
                                 <option value="{{ $i }}" {{ $i == old('birth_month') ? 'selected' : '' }}>{{ $i }}月</option>
                             @endfor
                         </select>
-                        <select id="birth_day" name="birth_day" required class="w-1/5 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        <select id="birth_day" name="birth_day" required class="w-1/5 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                             <option value="">日</option>
                             @for($i = 1; $i <= 31; $i++)
                                 <option value="{{ $i }}" {{ $i == old('birth_day') ? 'selected' : '' }}>{{ $i }}日</option>
@@ -88,28 +84,6 @@
                         @enderror
                     </div>
                 </div>
-{{-- 
-                <div class="mt-4">
-                    <div class="form-group">
-                        <x-input-label for="birth_year" :value="__('birth_year')" />
-                        <p>※18歳以下の方はご登録できません</p>
-                                            <select name="birth_year" id="birth_year">
-                            @for ($year = (int)date("Y") - 100; $year <= (int)date("Y"); $year++)
-                                <option value="{{ $year }}">{{ $year }}年</option>
-                            @endfor
-                        </select>
-                        <select name="birth_month" id="birth_month">
-                            @for ($month = 1; $month <= 12; $month++)
-                                <option value="{{ $month }}">{{ $month }}月</option>
-                            @endfor
-                        </select>
-                        <select name="birth_day" id="birth_day">
-                            @for ($day = 1; $day <= 31; $day++)
-                                <option value="{{ $day }}">{{ $day }}日</option>
-                            @endfor
-                        </select>
-                    </div>
-                </div> --}}
     
                 <!-- Password -->
                 <div class="mt-4">
@@ -146,21 +120,11 @@
                     </div>
                 </div>
                 <div class="mt-8 flex justify-center">
-                <button type="submit" class="w-1/5 ml-1 bg-mimosa border-0 py-1 px-2 focus:outline-none hover:bg-yellow-600 rounded text-lg">確認</button>
+                <button type="submit" class="w-1/5 ml-1 bg-mimosa border-0 py-1 px-2 focus:outline-none hover:bg-yellow-600 text-lg">確認</button>
                 </div>
-                {{-- <div class="mt-4 flex justify-center">
-                    <x-primary-button>
-                        確認
-                    </x-primary-button>
-                </div> --}}
-
             </form>
             <div class="mt-6 flex justify-center">
-                <button type="button" onclick="location.href='{{ route('welcome') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">戻る</button>   
-
-                {{-- <button type="button " onclick="window.location.href='{{ route('welcome') }}'" class="bg-gray-400 border-0 py-2 px-8 focus:outline-none hover:bg-gray-700">
-                    戻る
-                </button> --}}
+                <button type="button" onclick="location.href='{{ route('welcome') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 text-lg">戻る</button>   
             </div>
             </div>
         </div>

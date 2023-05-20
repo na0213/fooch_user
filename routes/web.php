@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,10 +22,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [TopController::class, 'welcome'])->name('welcome');
+Route::get('/top/index',  [TopController::class, 'index'])->name('top.index');
+Route::get('/top/show/{item}', [TopController::class, 'show'])->name('top.show');
+Route::get('/top/store/{store}', [TopController::class, 'store'])->name('top.store');
+Route::get('/top/whatis', [TopController::class, 'whatis'])->name('top.whatis');
+Route::get('/top/owner_contact', [TopController::class, 'ownercontact'])->name('top.owner_contact');
+Route::get('/terms', [TopController::class, 'terms'])->name('terms');
+Route::get('/legal', [TopController::class, 'legal'])->name('legal');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 

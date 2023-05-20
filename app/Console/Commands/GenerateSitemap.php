@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Post;
+use App\Models\Product;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
@@ -40,24 +40,16 @@ class GenerateSitemap extends Command
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_ALWAYS)
             ->setPriority(1.0));
 
-        // 記事一覧
-        // $sitemap->add(Url::create(route('posts.index'))
-        //     ->setLastModificationDate(now())
-        //     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-        //     ->setPriority(0.8));
+        // 商品一覧
+        $sitemap->add(Url::create(route('top.index'))
+            ->setLastModificationDate(now())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+            ->setPriority(0.8));
 
-        // 記事詳細
-        // $sitemap->add(Post::all());
-
-        // 固定ページ
-        // $sitemap->add(Url::create(route('about'))
-        //     ->setLastModificationDate(now())
-        //     ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
-        //     ->setPriority(0.5));
+        // 商品詳細
+        $sitemap->add(Product::all());
 
         // サイトマップをxmlへ書き込み
         $sitemap->writeToFile(public_path('sitemap.xml'));
-    // }
-        // return Command::SUCCESS;
     }
 }

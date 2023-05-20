@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('FOOCH', 'FOOCH') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,17 +19,61 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            {{-- <div> --}}
-                {{-- <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div> --}}
+    <body class="font-sans antialiased">
+        {{-- <div class="min-h-screen bg-gray-100"> --}}
+        <div class="min-h-screen bg-white">
+            @include('layouts.nav')
 
-            <div class="w-full sm:max-w-lg mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <!-- Page Content -->
+            <main>
                 {{ $slot }}
-            </div>
+            </main>
         </div>
     </body>
+    <footer style="background-color: #f2f2f2;">
+        <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+            <div>
+                <ul class="text-black-500 dark:text-black-400">
+                    <li class="mb-4">
+                        <x-nav-link :href="route('top.whatis')" :active="request()->routeIs('top.whatis')">
+                            {{ __('FOOCHとは') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('top.index')" :active="request()->routeIs('top.index')">
+                            {{ __('商品一覧') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#"  class="hover:underline">よくある質問</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="text-black-500 dark:text-black-600">
+                    <li class="mb-4">
+                        <x-nav-link :href="route('terms')" :active="request()->routeIs('terms')">
+                            {{ __('利用規約') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('legal')" :active="request()->routeIs('legal')">
+                            {{ __('特定商取引法に基づく表記') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        {{-- <a href="/legal" class="hover:underline">特定商取引法に基づく表記</a> --}}
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">運営者</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2022 <a href="https://flowbite.com/">FOOCH</a>.
+            </span>
+        </div>
+    </footer>
+
 </html>
