@@ -157,6 +157,16 @@
               @if ($errors->has('body'))
               <p class="error-message">{{ $errors->first('body') }}</p>
               @endif
+              <div class="mt-4">
+                <div class="flex items-center">
+                  <div>
+                    <label for="terms" class="inline-flex items-center">
+                      <input id="terms" type="checkbox" name="terms" required>
+                      <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-blue-500">{{ __('利用規約に同意しました') }}</a></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
               <div class="text-center w-full mt-2">
                 <button type="submit" name="action" onclick="return confirm('送信しますか？');" value="submit" class="bg-mimosa border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600">
                   送信する

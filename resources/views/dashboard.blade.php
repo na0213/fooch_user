@@ -20,16 +20,19 @@
         clear: both;
     }
     </style>
-        
+    <div class="text-center lg:w-full w-full flex items-center justify-center relative">
+        <a href="{{ route('top.whatis') }}" class="w-full relative block">
+            <img src="../../images/top.jpg" alt="fooch" class="w-full">
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <p class="text-sm sm:text-lg leading-relaxed text-gray-700">素材から価値を</p>
+                <p class="text-sm sm:text-lg mb-6 leading-relaxed text-gray-700">食の総合マーケット</p>
+                <p class="text-sm sm:text-sm mb-8 leading-relaxed text-gray-700">選択した原材料が入っていない食品を検索</p>
+            </div>
+        </a>
+    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section class="text-gray-600 body-font">
-                <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
-                <div class="text-center lg:w-2/3 w-full">
-                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">FOOCH</h1>
-                    <p class="test mb-8 leading-relaxed">原材料から選ぶ</p>
-                </div>
-                </div>
             </section>
     
             <form method="get" action="{{ route('items.index') }}">

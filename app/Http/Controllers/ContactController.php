@@ -16,6 +16,7 @@ class ContactController extends Controller
     public function confirm(Request $request)
     {
         $request->validate([
+            'terms' => ['required', 'accepted'],
             'email' => ['required', 'email'],
             'title' => ['required'],
             'body' => ['required'],
