@@ -21,6 +21,7 @@ class Store extends Model
         'logo',
         'image',
         'status',
+        'fee_percentage',
     ];
 
     public function owner()

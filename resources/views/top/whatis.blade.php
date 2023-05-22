@@ -1,9 +1,12 @@
 <x-guest-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            FOOCHとは？
-        </h2>
-    </x-slot>
+  <x-slot name="title">
+    '【原材料から選ぶ】食の総合マーケット'
+  </x-slot>
+
+  <x-slot name="description">
+      'グルテンフリー、無添加食品、アレルギーなど、食の多様化が進む時代に、指定した原材料を除外して検索できる食の総合サイトです。
+      探したい商品をより探しやすく。'
+  </x-slot>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <section class="text-gray-600 body-font">

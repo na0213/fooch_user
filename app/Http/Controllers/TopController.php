@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Stock;
 use App\Models\Store;
+use Illuminate\Support\Facades\Mail;
 
 class TopController extends Controller
 {
@@ -78,6 +79,34 @@ class TopController extends Controller
     public function ownercontact()
     {
         return view('top.owner_contact');
+    }
+    public function sendOwnerContact(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'body' => 'required',
+        ]);
+    
+        // 管理者へのメール送信
+        Mail::send('emails.contact', $data, function ($message) use ($data) {
+            $message->from($data['email'], $data['name']);
+            $message->to(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+            $message->subject('出店希望');
+        });
+        
+        // オーナーへの確認メール送信
+        Mail::send('emails.confirmation', $data, function ($message) use ($data) {
+            $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+            $message->to($data['email'], $data['name']);
+            $message->subject('出店希望の確認: '.$data['name']);
+        });
+
+        return redirect()->route('top.owner_contact')
+        ->with([
+            'message' => 'メッセージが送信されました。登録が完了するまでお待ちください。',
+            'status' => 'info'
+        ]);
     }
 
     public function whatis()

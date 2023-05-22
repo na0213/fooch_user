@@ -1,6 +1,15 @@
 <x-guest-layout>
 <x-slot name="header">
 </x-slot>
+<x-slot name="title">
+  '【原材料から選ぶ】食の総合マーケット'
+</x-slot>
+
+<x-slot name="description">
+    '食べてくれる方への思いを込めて作った大切な商品を、より探してもらいやすくするために。
+    グルテンフリー、白砂糖不使用など、食の多様化が進む時代に合わせて作った商品を、多くの人に知ってもらうために。
+    '
+</x-slot>
 <style>
   .flex-item {
     display: block;
@@ -16,6 +25,7 @@
 
 <div class="py-12">
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <x-flash-message status="session('status')" />
     <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-10 items-center justify-center flex-col">
           <div class="text-center lg:w-2/3 w-full">
@@ -127,6 +137,9 @@
             <p class="text-lg mb-2 font-semibold underline decoration-mimosa">ご登録方法</p><br>
             <p class="test mb-8 leading-relaxed">下記にお名前、メールアドレス、主に出店する商品（カテゴリー等）をご入力ください。<br>
               送信後1週間以内に、ご登録メールに仮パスワードとログインURLのご案内をお送りいたします。</p>
+
+            <form method="POST" action="{{ route('top.send_owner_contact') }}">
+              @csrf
               <label for="additives" class="leading-7 text-sm text-gray-600">お名前</label>
               <input type="text" name="name" value="{{ old('name') }}" required class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
               @if ($errors->has('name'))
@@ -144,13 +157,13 @@
               @if ($errors->has('body'))
               <p class="error-message">{{ $errors->first('body') }}</p>
               @endif
+              <div class="text-center w-full mt-2">
+                <button type="submit" name="action" onclick="return confirm('送信しますか？');" value="submit" class="bg-mimosa border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600">
+                  送信する
+                </button>
+              </div>
+            </form>
         </div>
-
-      <div class="text-center w-full mt-2">
-        <button type="submit" name="action" value="submit" class="bg-mimosa border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600">
-          送信する
-        </button>
-      </div>
     </section>
   </div>
 </div>

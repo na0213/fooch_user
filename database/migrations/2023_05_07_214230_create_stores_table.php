@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('image')->nullable();
             $table->string('status')->nullable()->default(null);
+            $table->decimal('fee_percentage', 5, 2);
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->softDeletes();

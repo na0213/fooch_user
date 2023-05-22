@@ -28,6 +28,7 @@ Route::get('/top/show/{item}', [TopController::class, 'show'])->name('top.show')
 Route::get('/top/store/{store}', [TopController::class, 'store'])->name('top.store');
 Route::get('/top/whatis', [TopController::class, 'whatis'])->name('top.whatis');
 Route::get('/top/owner_contact', [TopController::class, 'ownercontact'])->name('top.owner_contact');
+Route::post('/top/owner_contact', [TopController::class, 'sendOwnerContact'])->name('top.send_owner_contact');
 Route::get('/terms', [TopController::class, 'terms'])->name('terms');
 Route::get('/legal', [TopController::class, 'legal'])->name('legal');
 // Route::get('/', function () {

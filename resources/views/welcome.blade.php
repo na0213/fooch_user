@@ -1,4 +1,12 @@
 <x-guest-layout>
+    <x-slot name="title">
+    '【原材料から選ぶ】食の総合マーケット'
+    </x-slot>
+
+    <x-slot name="description">
+        'グルテンフリー、無添加食品、アレルギーなど、食の多様化が進む時代に、指定した原材料を除外して検索できる食の総合サイトです。
+        探したい商品をより探しやすく。'
+    </x-slot>
     <style>
         #exclusions label {
         display: block;
@@ -19,9 +27,9 @@
     <a href="{{ route('top.whatis') }}" class="w-full relative block">
         <img src="../../images/top.jpg" alt="fooch" class="w-full">
         <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <p class="text-sm sm:text-lg leading-relaxed text-gray-700">原材料から選ぶ</p>
-            <p class="text-sm sm:text-lg mb-6 leading-relaxed text-gray-700">素材から価値を</p>
-            <p class="text-sm sm:text-sm mb-8 leading-relaxed text-gray-700">選択した原材料が入っていない商品を検索</p>
+            <p class="text-sm sm:text-lg leading-relaxed text-gray-700">素材から価値を</p>
+            <p class="text-sm sm:text-lg mb-6 leading-relaxed text-gray-700">食の総合マーケット</p>
+            <p class="text-sm sm:text-sm mb-8 leading-relaxed text-gray-700">選択した原材料が入っていない食品を検索</p>
         </div>
     </a>
 </div>

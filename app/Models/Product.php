@@ -29,7 +29,6 @@ class Product extends Model
         'additives',
         'allergy',
         'price',
-        'is_selling',
         'expiration',
         'sort_order',
     ];
@@ -138,7 +137,6 @@ class Product extends Model
         ->where('product_images.sort_num', '0')
         ->leftJoin('shipping_patterns', 'products.shipping_patterns_id', '=', 'shipping_patterns.id')
         ->join('stores as product_stores', 'products.store_id', '=', 'product_stores.id')
-        ->where('products.is_selling', true)
         ->where('products.status', 'using')
         ->select('products.id as id',
         'products.name as name',
