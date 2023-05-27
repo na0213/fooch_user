@@ -25,15 +25,17 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');;
             $table->string('name');
-            $table->text('info');
-            $table->text('ingredients'); //食品成分
+            $table->text('content_volume'); //内容量
+            $table->text('ingredients'); //栄養成分
+            $table->text('storage_method');//保存方法
+            $table->unsignedInteger('price');
+            $table->text('expiration'); //賞味期限
             $table->text('additives')->nullable(); //添加物
             $table->text('allergy')->nullable();
-            $table->unsignedInteger('price');
-            $table->boolean('is_selling')->nullable();
-            $table->text('expiration')->nullable(); //賞味期限
-            $table->string('sort_order')->nullable();
-            $table->string('status')->default('pending');
+            $table->text('origin')->nullable(); //原産地
+            $table->text('nutrition_facts')->nullable(); //栄養成分
+            $table->text('info')->nullable();
+            $table->string('status')->nullable()->default(null);
             $table->datetime('created_at');
             $table->datetime('updated_at');
             $table->softDeletes();

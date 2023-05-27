@@ -49,10 +49,21 @@ class CartController extends Controller
             $totalShippingFee += $shippingFee;
         }
 
+        $canPurchase = true;
+        $nonPurchasableItems = [];
+        foreach ($displayItems as $item) {
+            if ($item['product']->status !== 'using') {
+                $canPurchase = false;
+                $nonPurchasableItems[] = $item['product']->name; // 商品名を配列に追加
+            }
+        }
+
         return view('cart.index', [
             'display_items' => $displayItems,
             'total_price' => $totalPrice,
             'total_shipping_fee' => $totalShippingFee,
+            'can_purchase' => $canPurchase, // 購入可能フラグをビューに渡す
+            'non_purchasable_items' => $nonPurchasableItems, // 購入不可能な商品のリストをビューに渡す
         ]);
     }
 
@@ -300,7 +311,11 @@ public function success(Request $request)
 
     Cart::where('user_id', Auth::id())->delete();
 
-    return redirect()->route('cart.index');
+    return redirect()->route('cart.index')
+        ->with([
+            'message' => '商品が購入されました。',
+            'status' => 'info'
+    ]);
 }
 
 public function cancel()

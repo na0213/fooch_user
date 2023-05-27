@@ -21,7 +21,6 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->string('shipping_name');
             $table->unsignedInteger('hokkaido_fee')->nullable();
-            $table->unsignedInteger('shipping_ktohoku')->nullable();
             $table->unsignedInteger('ktohoku_fee')->nullable();
             $table->unsignedInteger('mtohoku_fee')->nullable();
             $table->unsignedInteger('kanto_fee')->nullable();

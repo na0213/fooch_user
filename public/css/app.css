@@ -900,9 +900,6 @@ video {
 }.text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }.text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1077,6 +1074,9 @@ video {
 }.hover\:bg-gray-50:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}.hover\:bg-gray-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }.hover\:bg-gray-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
@@ -1287,9 +1287,6 @@ video {
   }.sm\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
-  }.sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
   }.sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;

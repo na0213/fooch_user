@@ -11,4 +11,16 @@ class StoreController extends Controller
     {
         return view('stores.show', compact('store'));
     }
+
+    public function specificBusinessTransaction(Store $store)
+    {
+        $specificBusinessTransaction = $store->specificBusinessTransaction;
+    
+        if (!$specificBusinessTransaction) {
+            abort(404, 'Specific Business Transaction not found');
+        }
+    
+        return view('stores.specific-business-transaction', compact('specificBusinessTransaction'));
+    }
+    
 }

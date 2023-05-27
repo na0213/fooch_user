@@ -6,6 +6,7 @@
     </x-slot>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <x-flash-message status="session('status')" />
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 @if(count($display_items) > 0)
@@ -68,9 +69,17 @@
                     <p>総合計: {{ $total_price + $total_shipping_fee }}円</p>
                 </div>
                 <div class="my-3 mx-3">
-                    <button onclick="location.href='{{ route('cart.show') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">購入画面に進む</button>
-                    {{-- <button onclick="location.href='{{ route('user.cart.checkout') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">購入する</button> --}}
+                    <button onclick="location.href='{{ route('cart.show') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-gray-600" {{ $can_purchase ? '' : 'disabled' }}>購入画面に進む</button>
+                    @if(!$can_purchase)
+                        <p style="color:red;">以下の商品は販売停止となりました。カートから削除してください。</p>
+                        @foreach($non_purchasable_items as $item)
+                            <p style="color:red;">{{ $item }}</p>
+                        @endforeach
+                    @endif
                 </div>
+                {{-- <div class="my-3 mx-3">
+                    <button onclick="location.href='{{ route('cart.show') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">購入画面に進む</button>
+                </div> --}}
             @else
                 <p>カートに商品が入っていません。</p>
             @endif        

@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
 
     //店舗
     Route::get('/stores/{store}', [StoreController::class, 'show'])->name('store.show');
+    Route::get('/stores/{store}/specific-business-transaction', [StoreController::class, 'specificBusinessTransaction'])->name('store.specificBusinessTransaction');
 
     //カート
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');

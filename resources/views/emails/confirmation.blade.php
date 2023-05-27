@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <body>
     <p>お問合せありがとうございます。</p>
     <p>確認が取れ次第、ログインURLを発行し、以下ご登録のメールアドレスにご連絡いたします。</p><br>

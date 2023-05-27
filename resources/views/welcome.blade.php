@@ -66,7 +66,8 @@
                             <option value="" @if(\Request::get('exclusion') === '') selected @endif></option>
                             @foreach($exclusions as $index => $name)
                             <label class="my-checkbox ml-4">
-                            <input type="checkbox" id="exclusion_id" name="exclusion_id[]" value="{{ $index }}" @if(\Request::get('exclusion') == $index) selected @endif>{{ $name }}
+                            {{-- <input type="checkbox" id="exclusion_id" name="exclusion_id[]" value="{{ $index }}" @if(\Request::get('exclusion') == $index) selected @endif>{{ $name }} --}}
+                            <input type="checkbox" name="exclusion_id[]" value="{{ $index }}" @if(\Request::get('exclusion') == $index) selected @endif>{{ $name }}
                             </label>
                             @endforeach
                         </div>

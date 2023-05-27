@@ -49,13 +49,13 @@
         <div class="container mx-auto w-4/5 border">
           <div class="p-2 w-2/2 mx-auto">
             <p class="test leading-relaxed font-semibold">食品購入に関するインターネット調査</p>
-            <p class="text-sm">（株式会社クラウドワークス 男女100名）</p><br>
-            <p class="test leading-relaxed">Q.食品表示は見ますか？<br>
+            {{-- <p class="text-sm">（株式会社クラウドワークス 男女100名）</p><br> --}}
+            <p class="test leading-relaxed">食品表示は見ますか？<br>
             <p class="test mb-8 leading-relaxed">
-              <img src="../../images/QA1.png" class="img-thumbnail"> <br>
-            <p class="test leading-relaxed">Q.食品表示を見るのはなぜですか？<br>
+              <img src="../../images/food.jpg" class="img-thumbnail"> <br>
+            {{-- <p class="test leading-relaxed">Q.食品表示を見るのはなぜですか？<br> --}}
             <p class="test mb-8 leading-relaxed">
-              <img src="../../images/QA2.png" class="img-thumbnail"> <br>
+              <img src="../../images/foodserch.jpg" class="img-thumbnail"> <br>
             <p class="test leading-relaxed">Q.ネット購入で不便なことはありますか？<br>
               <p class="test mb-2 leading-relaxed">
                 <img src="../../images/QA3.png" class="img-thumbnail"><br>                 

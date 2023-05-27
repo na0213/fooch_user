@@ -27,11 +27,11 @@ return new class extends Migration
             $table->string('tel');
             $table->string('contact')->nullable();
             $table->string('business_days')->nullable(); //営業日
-            $table->string('sale_price')->nullable(); //販売価格
-            $table->string('shipping_cost')->nullable(); //送料
+            $table->string('sale_price')->default('各商品詳細ページに記載された金額(税込)'); //販売価格
+            $table->string('shipping_cost')->default('各商品詳細ページに記載された金額(税込)'); //送料
             $table->string('delivery')->nullable(); //配送
-            $table->string('payment_method')->nullable(); //支払い方法
-            $table->string('payment_timing')->nullable(); //支払い時期
+            $table->string('payment_method')->default('クレジットカード'); //支払い方法
+            $table->string('payment_timing')->default('商品購入完了時'); //支払い時期
             $table->text('return_exchange')->nullable(); //返品交換
             $table->timestamps();
             $table->softDeletes();
