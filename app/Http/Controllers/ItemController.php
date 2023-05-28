@@ -46,8 +46,8 @@ class ItemController extends Controller
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? '20');
 
-// 実行されるクエリを表示
-\Log::debug('Query: ', ['query' => Product::availableItems($request->exclusion_id)->toSql()]);
+        // 実行されるクエリを表示
+        \Log::debug('Query: ', ['query' => Product::availableItems($request->exclusion_id)->toSql()]);
 
         $products = $products->unique('id');
 
@@ -82,4 +82,30 @@ class ItemController extends Controller
 
         return view('items.show', compact('product','categories','quantity','product_images', 'imagearray','exclusions', 'user_prefecture'));
     }
+
+    public function favorite(Request $request, Product $product)
+    {
+        $isFavorite = $product->isFavoriteBy($request->user());
+    
+        $isFavorite ? $product->favorites()->detach($request->user()) : $product->favorites()->attach($request->user());
+    
+        $favoritesCount = $product->favorites()->count();
+    
+        return ['isFavorite' => !$isFavorite, 'favoritesCount' => $favoritesCount];
+    }    
+
+    public function favorites(Request $request)
+    {
+        $products = Product::availableItems($request->exclusion_id)
+            ->whereHas('favorites', function ($query) {
+                $query->where('user_id', Auth::user()->id);
+            })
+            ->paginate($request->pagination ?? '20');
+            
+        $categories = config('category');
+        $exclusions = config('exclusion');
+        
+        return view('items.favorites', compact('products', 'categories', 'exclusions'));
+    }
+
 }

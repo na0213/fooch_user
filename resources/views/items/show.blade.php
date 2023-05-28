@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            商品一覧
+            商品詳細
         </h2>
     </x-slot>
     <div class="py-12">
@@ -17,6 +17,16 @@
                             @endif
                             @endforeach 
                         </div>
+                        <!-- お気に入りマーク -->
+                        <div id="favorite-icon">
+                            @if(Auth::user() && $product->isFavoriteBy(Auth::user()))
+                                <i class="fas fa-heart text-red-500"></i>
+                            @else
+                                <i class="far fa-heart text-red-500"></i>
+                            @endif
+                            <span>{{ $product->favorites()->count() }}</span>
+                        </div>
+
                         <div class="container text-right mb-2">
                             <span class="text-md text-gray-900">商品金額：</span><span class="title-font font-medium text-2xl text-gray-900">{{ number_format($product->price)}}円（税込）</span>
                             {{-- <span class="title-font font-medium text-2xl text-gray-900">商品金額：{{ number_format($product->price_with_tax)}}円（税込）</span> --}}
@@ -125,12 +135,32 @@
             </div>
         </div>
     </div>
-    <script>
-        var thumbs = document.querySelectorAll('.thumb');
-        for(var i = 0; i < thumbs.length; i++){
-        thumbs[i].onclick = function(){
-        document.getElementById('bigimg').src = this.dataset.image;
-        };
+<script>
+    var thumbs = document.querySelectorAll('.thumb');
+    for(var i = 0; i < thumbs.length; i++){
+    thumbs[i].onclick = function(){
+    document.getElementById('bigimg').src = this.dataset.image;
+    };
+    }
+</script>
+<script>
+    document.getElementById('favorite-icon').addEventListener('click', async () => {
+        const productId = {{ $product->id }};
+        const response = await fetch(`/products/${productId}/favorite`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+        });
+
+        if (response.ok) {
+            const { isFavorite, favoritesCount } = await response.json();
+            const icon = document.querySelector('#favorite-icon i');
+            const countSpan = document.querySelector('#favorite-icon span');
+            icon.classList.remove('fas', 'far');
+            icon.classList.add(isFavorite ? 'fas' : 'far');
+            countSpan.textContent = favoritesCount;
         }
-    </script>
-    </x-app-layout>
+    });
+</script>
+</x-app-layout>

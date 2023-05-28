@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use App\Models\Product;
 use App\Models\ShippingAddress;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -50,5 +51,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function shipping_address()
     {
         return $this->hasOne(ShippingAddress::class);
+    }
+
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'favorites');
     }
 }

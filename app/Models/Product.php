@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\ProductImage;
 use App\Models\Photo;
 use App\Models\ShippingPattern;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -202,4 +203,15 @@ class Product extends Model
             return;
         }
     }
+
+    public function favorites(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'favorites');
+    }
+
+    public function isFavoriteBy(User $user): bool
+    {
+        return $this->favorites()->where('user_id', $user->id)->exists();
+    }
+
 }

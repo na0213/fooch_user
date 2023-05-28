@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                         {{ __('マイページ') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('items.favorites')" :active="request()->routeIs('items.favorites')">
+                        {{ __('お気に入り') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                         {{ __('お問合せ') }}
                     </x-nav-link>
@@ -49,9 +52,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        {{-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> --}}
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -94,6 +97,9 @@
             <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
                 {{ __('マイページ') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('items.favorites')" :active="request()->routeIs('items.favorites')">
+                {{ __('お気に入り') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
                 {{ __('お問合せ') }}
             </x-responsive-nav-link>
@@ -110,9 +116,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
+                {{-- <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> --}}
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
