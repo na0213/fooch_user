@@ -42,6 +42,10 @@ Route::get('/dashboard', [HomeController::class, 'index'])
     ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/home/whatis', [HomeController::class, 'whatis'])->name('home.whatis');
+    Route::get('/home/terms', [HomeController::class, 'terms'])->name('home.terms');
+    Route::get('/home/legal', [HomeController::class, 'legal'])->name('home.legal');
+
     //商品
     Route::get('/index',  [ItemController::class, 'index'])->name('items.index');
     Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');

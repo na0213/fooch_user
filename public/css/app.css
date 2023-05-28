@@ -518,6 +518,12 @@ video {
 }.my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }.-ml-px {
   margin-left: -1px;
 }.-mr-2 {
@@ -1293,6 +1299,9 @@ video {
   }.sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }.sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }@media (min-width: 768px) {.md\:flex {
     display: flex;

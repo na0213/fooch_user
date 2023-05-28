@@ -153,7 +153,6 @@ class Product extends Model
         'products.additives',
         'products.expiration',
         'products.allergy',
-        // 'products.sort_order as sort_order',
         'product_stores.name as store_name',
         );
     }

@@ -1,9 +1,4 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            ホーム
-        </h2>
-    </x-slot>
     <style>
         #exclusions label {
             display: block;
@@ -21,7 +16,7 @@
     }
     </style>
     <div class="text-center lg:w-full w-full flex items-center justify-center relative">
-        <a href="{{ route('top.whatis') }}" class="w-full relative block">
+        <a href="{{ route('home.whatis') }}" class="w-full relative block">
             <img src="../../images/top.jpg" alt="fooch" class="w-full">
             <div class="absolute inset-0 flex flex-col items-center justify-center">
                 <p class="text-sm sm:text-lg leading-relaxed text-gray-700">素材から価値を</p>
@@ -94,7 +89,7 @@
                                     <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $category_name }}</h3> 
                                     @endif
                                     @endforeach 
-                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
+                                    <h2 class="text-gray-900 title-font text-sm sm:text-base font-medium">{{ $product->name }}</h2>
                                     <p class="mt-1">{{ number_format($product->price) }}<span class="text-sm text-gray-700">円(税込)</span></p>
                                     <!-- 在庫チェック -->
                                     @if($product->getStockQuantity() == 0)

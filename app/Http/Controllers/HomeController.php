@@ -28,8 +28,6 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        // SendThanksMail::dispatch();
-
         $categories = config('category');
         $exclusions = config('exclusion');
         $products = Product::availableItems($request->exclusion_id)
@@ -46,8 +44,6 @@ class HomeController extends Controller
 
     public function show(Request $request)
     {
-        // SendThanksMail::dispatch();
-
         $categories = config('category');
         $exclusions = config('exclusion');
         $products = Product::availableItems($request->exclusion_id)
@@ -60,5 +56,20 @@ class HomeController extends Controller
 
 
         return view('home.index', compact('products','categories','exclusions'));
+    }
+
+    public function whatis()
+    {
+        return view('home.whatis');
+    }
+
+    public function terms()
+    {
+        return view('home.terms');
+    }
+
+    public function legal()
+    {
+        return view('home.legal');
     }
 }
