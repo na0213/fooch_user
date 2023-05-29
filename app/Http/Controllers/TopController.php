@@ -8,6 +8,7 @@ use App\Models\ProductImage;
 use App\Models\Stock;
 use App\Models\Store;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Pagination\Paginator;
 
 class TopController extends Controller
 {
@@ -21,10 +22,7 @@ class TopController extends Controller
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
-        ->paginate($request->pagination ?? '20');
-
-        $products = $products->unique('id');
-
+        ->paginate(8);
 
         return view('welcome', compact('products','categories','exclusions'));
     }
@@ -37,10 +35,7 @@ class TopController extends Controller
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
-        ->paginate($request->pagination ?? '20');
-
-        $products = $products->unique('id');
-
+        ->paginate(20);
 
         return view('top.index', compact('products','categories','exclusions'));
     }

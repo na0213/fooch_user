@@ -94,10 +94,9 @@
                             </div>
                         @endforeach
                     </div>
-                    {{-- {{ $products->appends([
-                        'sort' => \Request::get('sort'),
-                        'pagination' => \Request::get('pagination')
-                      ])->links() }} --}}
+                    <div class="mt-5">
+                        {{ $products->links() }}
+                    </div>
                 </div>
             </div>
         </div>

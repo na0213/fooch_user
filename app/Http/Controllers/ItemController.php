@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Stock;
@@ -44,13 +45,11 @@ class ItemController extends Controller
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
-        ->paginate($request->pagination ?? '20');
+        ->paginate(20);
+        // ->paginate($request->pagination ?? '20');
 
         // 実行されるクエリを表示
         \Log::debug('Query: ', ['query' => Product::availableItems($request->exclusion_id)->toSql()]);
-
-        $products = $products->unique('id');
-
 
         return view('items.index', compact('products','categories','exclusions'));
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
 use App\Models\Product;
 
 class HomeController extends Controller
@@ -34,10 +35,8 @@ class HomeController extends Controller
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
-        ->paginate($request->pagination ?? '20');
-
-        $products = $products->unique('id');
-
+        ->paginate(8);
+        // ->paginate($request->pagination ?? '8');
 
         return view('dashboard', compact('products','categories','exclusions'));
     }
