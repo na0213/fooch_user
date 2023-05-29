@@ -9,27 +9,11 @@ use Spatie\Sitemap\Tags\Url;
 
 class GenerateSitemap extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'sitemap:generate';
-    // protected $signature = 'command:name';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'Generate the sitemap.';
     // protected $description = 'Command description';
 
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
         $sitemap = Sitemap::create();
@@ -47,7 +31,37 @@ class GenerateSitemap extends Command
             ->setPriority(0.8));
 
         // 商品詳細
-        $sitemap->add(Product::all());
+        Product::all()->each(function ($product) use ($sitemap) {
+            $sitemap->add(Url::create(route('top.show', $product))
+                ->setLastModificationDate($product->updated_at)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setPriority(0.5));
+        });
+
+        $sitemap->add(Url::create(route('top.store'))
+            ->setLastModificationDate(now())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            ->setPriority(0.5));
+
+        $sitemap->add(Url::create(route('top.whatis'))
+        ->setLastModificationDate(now())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_ALWAYS)
+        ->setPriority(1.0));
+
+        $sitemap->add(Url::create(route('top.owner_contact'))
+        ->setLastModificationDate(now())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_ALWAYS)
+        ->setPriority(1.0));
+
+        $sitemap->add(Url::create(route('terms'))
+        ->setLastModificationDate(now())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+        ->setPriority(0.5));
+
+        $sitemap->add(Url::create(route('legal'))
+        ->setLastModificationDate(now())
+        ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+        ->setPriority(0.5));
 
         // サイトマップをxmlへ書き込み
         $sitemap->writeToFile(public_path('sitemap.xml'));

@@ -40,11 +40,11 @@
             思いがこもったこだわりの商品を、もっと探してもらいやすくできないか？<br><br>
             お客様が簡単に目的の商品にたどり着けるようにしたのがFOOCHです。<br><br>
             
-            <p class="text-lg font-semibold underline decoration-mimosa">ポイント</p><br>
+            <p class="text-lg font-semibold underline decoration-mimosa">FOOCHの特徴</p><br>
             <p class="test mb-8 leading-relaxed">カテゴリーやキーワード検索では探したい目的の商品を。<br>
             原材料項目にチェックを入れると、
             チェックした原材料が含まれない商品にたどり着けるようになっています。<br><br>
-            下記のアンケート結果をご覧ください。<br>
+
         </div>
         <div class="container mx-auto w-4/5 border">
           <div class="p-2 w-2/2 mx-auto">
@@ -54,18 +54,23 @@
               <img src="../../images/food1.jpg" class="img-thumbnail"> <br>
               <p class="test leading-relaxed">なぜ食品表示を見ますか？<br>
             <p class="test mb-8 leading-relaxed">
-              <img src="../../images/food3.jpg" class="img-thumbnail"> <br>
-            <p class="test leading-relaxed">Q.ネット購入で不便なことはありますか？<br>
-              <p class="test mb-2 leading-relaxed">
-                <img src="../../images/QA3.png" class="img-thumbnail"><br>                 
+              <img src="../../images/food2.jpg" class="img-thumbnail"> <br>             
           </div>
         </div>
         <div class="p-2 w-4/5 mt-6 mx-auto">
           <p class="text-lg mb-2 mt-4 font-semibold underline decoration-mimosa">6割以上が食品表示を見ている</p><br>
           <p class="test mb-4 leading-relaxed">インターネット調査の結果から、食品表示を見る方は6割以上でした。<br>
           食品表示を見る理由としては、約7割の方が添加物やアレルギー、糖分などを気にされています。<br><br>
-          また、ネット購入時に食品表示の不便さや、目的の商品が探しにくいとの意見が半数近くを占めました。<br><br><br>
-
+          また、ネット購入時に食品表示の不便さや、目的の商品が探しにくいとの意見が半数近くを占めました。<br><br>
+        </div>
+        <div class="container mx-auto w-4/5 border">
+          <div class="p-2 w-2/2 mx-auto">
+            <p class="test leading-relaxed">Q.ネット購入で不便なことはありますか？<br>
+              <p class="test mb-2 leading-relaxed">
+                <img src="../../images/food3.jpg" class="img-thumbnail"><br>                 
+          </div>
+        </div>
+        <div class="p-2 w-4/5 mt-6 mx-auto">
           <p class="text-lg mb-2 font-semibold underline decoration-mimosa">商品を探してもらいやすくしたい</p><br>
           原材料を選んで検索できることは、目的の商品を探したいお客様が利用しやすく、
           オーナー様は原材料にこだわった商品を探してもらいやすくなります。</p><br><br>

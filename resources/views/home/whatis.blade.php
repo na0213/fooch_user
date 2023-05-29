@@ -12,24 +12,22 @@
         <section class="text-gray-600 body-font">
         <div class="container mx-auto flex px-5 py-24 items-left justify-center flex-col">
             <h1 class="title-font text-center sm:text-2xl text-2xl mb-4 font-medium text-gray-900">FOOCH</h1>
-            <p class="text-lg mb-2 text-center font-semibold">食べたいものを原材料で選ぶ</p>
+            <h2 class="mb-2 text-center font-semibold">食べたいものを原材料で選ぶ</h2>
+            <p class="text-center text-mf">多様化していく食環境のために</p><br><br>
     
             <ul class="top_image">
-            <li class="two_image"><img class="object-contain" src="../../../images/wheat2.jpg" alt="image description"></li>
-            <li class="two_image"><img class="object-contain" src="../../../images/eggs.jpg" alt="image description"></li>
+            <li class="two_image"><img class="object-contain" src="../../../images/egg.jpg" alt="image description"></li>
             </ul>
     
-            <div class="container mx-auto flex px-5">
-            <p class="font-bold text-lg">多様化していく食環境のために</p><br><br>
-            </div>
-    
             <div class="container mx-auto flex px-5 py-10">
-            <p class="test leading-relaxed">
-                <a class="font-bold text-2xl underline decoration-mimosa">FOOCHとは</a><br><br>
-                食品だけを取り扱うオンライン上のショッピングモール型サービスです。<br>
-                探したい商品を見つけやすく、検索の手間が省けるような仕組みとなっています。<br><br>
-                <br>
-            </p>
+                <h3 class="font-bold text-2xl underline decoration-mimosa">FOOCHとは</h3>
+              </div>
+              <div class="container mx-auto flex px-5">
+                <p class="test leading-relaxed">
+                    食品だけを取り扱う総合マーケットです。<br>
+                    探したい商品を見つけやすく、検索の手間が省けるような仕組みとなっています。<br><br>
+                    <br>
+                </p>
             </div>
     
             <div class="container mx-auto flex px-5 py-10">

@@ -39,4 +39,49 @@
             </main>
         </div>
     </body>
+    <footer style="background-color: #f2f2f2;">
+        <div class="grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4">
+            <div>
+                <ul class="text-black-500 dark:text-black-400">
+                    <li class="mb-4">
+                        <x-nav-link :href="route('home.whatis')" :active="request()->routeIs('home.whatis')">
+                            {{ __('FOOCHとは') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+                            {{ __('商品一覧') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#"  class="hover:underline">よくある質問</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="text-black-500 dark:text-black-600">
+                    <li class="mb-4">
+                        <x-nav-link :href="route('home.terms')" :active="request()->routeIs('home.terms')">
+                            {{ __('利用規約') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('home.legal')" :active="request()->routeIs('home.legal')">
+                            {{ __('特定商取引法に基づく表記') }}
+                        </x-nav-link>
+                    </li>
+                    <li class="mb-4">
+                        {{-- <a href="/legal" class="hover:underline">特定商取引法に基づく表記</a> --}}
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="hover:underline">運営者</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2022 <a href="https://flowbite.com/">FOOCH</a>.
+            </span>
+        </div>
+    </footer>
 </html>
