@@ -27,12 +27,16 @@
         </ul>
 
         <div class="mb-4">配送先</div>
-        <ul>
-            <li>配送先氏名：{{ $shipping_address['name'] }} 様</li>
+        <p>{{ $shipping_address['name'] }} 様</p>
+        <p>〒{{ $shipping_address['zipcode'] }}</p>
+        <p>{{ $shipping_address['prefecture'] }}{{ $shipping_address['city'] }}</p>
+        <p>電話番号: {{ $shipping_address['tel'] }}</p>
+        {{-- <ul>
+            <li>{{ $shipping_address['name'] }} 様</li>
             <li>配送先郵便番号：{{ $shipping_address['zipcode']}}</li>
             <li>配送先住所：{{ $shipping_address['prefecture'] }}{{ $shipping_address['city'] }}</li>
             <li>配送先電話番号：{{ $shipping_address['tel'] }}</li>
-         <ul>
+         <ul> --}}
 
     <p>引き続きよろしくお願いいたします。</p>
     <p>{{ config('app.name') }}</p>
