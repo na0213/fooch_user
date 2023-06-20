@@ -34,7 +34,7 @@
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">◆ご購入商品</label>
                             @foreach($display_items as $item)
-                                <div class="flex">
+                                <div class="flex mb-2">
                                     @if($item['image'])
                                         <div class="px-6 py-2 whitespace-nowrap">
                                             <img class="logo" src="{{ config('aws.S3.url') . '/' . $item['image'] }}" alt="商品画像" style="max-width: 100px; height: 100px; object-fit: cover;" class="img-thumbnail">
@@ -56,29 +56,29 @@
                         
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row md:space-x-4">
-                <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="space-y-6">
-                        <div class="flex flex-col md:flex-row md:space-x-4">
-                            <div>
+                        <div>
                             <h5 class="text-xl font-medium text-gray-900 dark:text-white">お届け先</h5>
+                            <div class="w-full bg-gray-100 bg-opacity-50 rounded text-base outline-none text-gray-700 py-1 px-3 leading-8">
+                                {{ $user->name }}様<br>
+                                〒{{ $user->zipcode }}<br>
+                                {{ $user->prefecture }}{{ $user->city }}<br>
+                                {{ $user->tel }}
                             </div>
-                        </div>
-                        <div class="w-full bg-gray-100 bg-opacity-50 rounded text-base outline-none text-gray-700 py-1 px-3 leading-8">
-                            {{ $user->name }}様<br>
-                            〒{{ $user->zipcode }}<br>
-                            {{ $user->prefecture }}{{ $user->city }}<br>
-                            {{ $user->tel }}
                         </div>
                     </div>
                 </div>
-                <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+                <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
                     <div class="space-y-6">
                         <div>
                             <input type="hidden" name="selected_address" id="selected_address_value">
-                            <button type="submit" class="text-gray-800 bg-detail border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 text-lg">購入</button>
+                            <button type="submit" class="text-gray-800 bg-lyellow border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500 text-lg">購入する</button>
                             <p>※決済ページにに移行します</p>
                         </div>
+                    </div>
+                </div>
+
                         {{-- <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">クレジットカード</label>
                         </div> --}}
@@ -108,9 +108,6 @@
                         <div>カード情報を登録してください</div>
                         @endif --}}
                         {{-- <button onclick="location.href='{{ route('payment.index') }}'" class="text-gray-800 bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">カード情報登録</button> --}}
-                    </div>
-                </div>
-                </div>
             </form>
             <div class="p-2 w-full flex justify-around mt-4">
                 <button type="button" onclick="location.href='{{ route('cart.index') }}'" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400">戻る</button>

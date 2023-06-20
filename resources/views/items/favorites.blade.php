@@ -1,12 +1,17 @@
 <x-app-layout>
-<x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        商品一覧
-    </h2>
-</x-slot>
-<div class="py-6">
-
+<style>
+    h1 {
+        font-size: 70px;
+        color: #FFF67F;
+    }
+    .title-font {
+        font-size: 50px;
+        color: #c9ccce;
+    }
+</style>
+<div class="mb-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <h1 class="text-start">F<span class="title-font">AVORITE</h1>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
                 <div class="flex flex-wrap">
@@ -18,10 +23,10 @@
                                 @else
                                     <img src="../../../images/noimage.jpg" class="img-thumbnail">
                                 @endif
-                                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->store_name }}</h3> 
+                                <h3 class="text-gray-500 text-xs tracking-widest mb-1">{{ $product->store_name }}</h3> 
                                 @foreach($categories as $index => $category_name)
                                 @if($index === $product->category_id)
-                                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $category_name }}</h3> 
+                                <h3 class="text-gray-500 text-xs tracking-widest mb-1">{{ $category_name }}</h3> 
                                 @endif
                                 @endforeach 
                                 <p class="test leading-relaxed font-semibold">{{ $product->name }}</p>

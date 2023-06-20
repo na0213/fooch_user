@@ -27,9 +27,6 @@
                     <x-nav-link :href="route('items.favorites')" :active="request()->routeIs('items.favorites')">
                         {{ __('お気に入り') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
-                        {{ __('お問合せ') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
                         {{ __('カート') }}
                     </x-nav-link>
@@ -95,9 +92,6 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('items.favorites')" :active="request()->routeIs('items.favorites')">
                 {{ __('お気に入り') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
-                {{ __('お問合せ') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('cart.index')" :active="request()->routeIs('cart.index')">
                 {{ __('カート') }}

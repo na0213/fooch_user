@@ -21,7 +21,7 @@
         
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-white">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -49,12 +49,12 @@
                         </x-nav-link>
                     </li>
                     <li class="mb-4">
-                        <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
-                            {{ __('商品一覧') }}
-                        </x-nav-link>
+                        <a href="#"  class="hover:underline">よくある質問</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#"  class="hover:underline">よくある質問</a>
+                        <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
+                            {{ __('お問合せ') }}
+                        </x-nav-link>
                     </li>
                 </ul>
             </div>
@@ -80,7 +80,7 @@
             </div>
         </div>
         <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2022 <a href="https://flowbite.com/">FOOCH</a>.
+            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">FOOCH</a>.
             </span>
         </div>
     </footer>

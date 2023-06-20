@@ -15,15 +15,18 @@
         clear: both;
     }
     </style>
-    <div class="text-center lg:w-full w-full flex items-center justify-center relative">
-        <a href="{{ route('home.whatis') }}" class="w-full relative block">
-            <img src="../../images/top.jpg" alt="fooch" class="w-full">
-            <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <p class="text-sm sm:text-lg leading-relaxed text-gray-700">素材から価値を</p>
-                <p class="text-sm sm:text-lg mb-6 leading-relaxed text-gray-700">食の総合マーケット</p>
-                <p class="text-sm sm:text-sm mb-8 leading-relaxed text-gray-700">選択した原材料が入っていない食品を検索</p>
-            </div>
-        </a>
+    <div class="relative lg:w-full w-full flex items-center justify-center text-center">
+        <img src="../../images/foochtop.jpg" alt="fooch" class="w-full">
+
+        <div class="absolute right-0 w-1/2 flex flex-col justify-center items-start text-left p-5 bg-semi-transparent-yellow">
+            <p class="text-xs sm:text-lg font-bold leading-relaxed text-gray-700 sm:mb-4">原材料から始まる食のstory</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">体質、生き方、好き嫌い、</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">100人いれば100通りの食生活（story）がある</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-4">食べたいものを原材料から選んでみよう</p>
+            <a href="{{ route('home.whatis') }}" class="w-full relative block">
+            <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
+            </a>
+        </div>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

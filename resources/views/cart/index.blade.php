@@ -1,11 +1,17 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            カート一覧
-        </h2>
-    </x-slot>
-<div class="py-12">
+<style>
+    h1 {
+        font-size: 70px;
+        color: #FFF67F;
+    }
+    .title-font {
+        font-size: 50px;
+        color: #c9ccce;
+    }
+</style>
+<div class="mb-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <h1 class="text-start">C<span class="title-font">ART</h1>
         <x-flash-message status="session('status')" />
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">

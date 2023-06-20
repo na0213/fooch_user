@@ -49,7 +49,7 @@
       <div class="container mx-auto flex px-5 py-10 items-left justify-center flex-col">
         <h1 class="text-start">S<span class="title-font">TORE</h1>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">こだわりの商品を<br><span class="under">もっと知ってもらいたい</span></h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">こだわりの商品を<br><span class="under">もっと知ってもらいたい</span></h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">ご訪問ありがとうございます。<br>
               皆様の、思いを込めて作られた大切な商品が、<br>
               ECサイトが普及する時代に埋もれてしまうことがないように。<br>
@@ -65,7 +65,7 @@
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">食品表示を見る人は<br><span class="under">6割以上</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">食品表示を見る人は<br><span class="under">6割以上</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">食品表示をみる人はどれくらいいるのだろうか？<br>
               食品表示をみる理由はなんだろうか？<br>
               インターネット調査を行いました。<br>
@@ -90,7 +90,7 @@
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">人と食との<span class="under">マッチング</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">人と食との<span class="under">マッチング</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">さらに、原材料で検索できるようなECサイトがあったら利用するか確認したところ、<br>
               「利用したい」が約4割<br>
               「訪問したい」「検索に利用したい」が約5割<br>
@@ -102,19 +102,19 @@
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">手数料<span class="under">12％</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">手数料<span class="under">12％</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">登録料、使用料は無料ですが、手数料として売上金の12％を頂戴いたします。<br>
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">売上金の<span class="under">受取</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">売上金の<span class="under">受取</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">売上金額は銀行振込にて受け取ることができます。<br>
               別途振込手数料（一律200円）がかかりますので予めご了承ください。<br>
               売上金の受取申請は、申請された月の月末までに確定した売上金を、翌月末にお振込みいたします。<br>
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
-            <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">ご登録<span class="under">方法</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">ご登録<span class="under">方法</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">下記フォームに、お名前、メールアドレス、簡単なお店のご紹介（ホームページやカテゴリー等）をご入力ください。<br>
               送信後1週間以内に、ご登録メールに仮パスワードとログインURLのご案内をお送りいたします。</p>
             </p>
