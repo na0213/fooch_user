@@ -27,7 +27,7 @@
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('ログイン') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('register')" :active="request()->routeIs('cregister')">
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
                         {{ __('新規登録') }}
                     </x-nav-link>
                 </div>

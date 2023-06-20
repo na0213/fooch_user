@@ -1,70 +1,90 @@
 <x-guest-layout>
+  <style>
+    h1 {
+      font-size: 90px;
+      color: #FFF67F;
+    }
+    .title-font {
+      font-size: 70px;
+      color: #c9ccce;
+    }
+    .subtitle{
+      text-decoration:underline solid 2px #FFF67F;
+      position: relative;
+      display: inline-block;
+    }
+   .under {
+      content: " ";
+      text-decoration:underline solid 2px #c9ccce;
+    }
+    .content {
+      line-height: 2.0;
+    }
+  </style>
   <x-slot name="title">
     '【原材料から選ぶ】食の総合マーケット'
   </x-slot>
-
   <x-slot name="description">
       'グルテンフリー、無添加食品、アレルギーなど、食の多様化が進む時代に、指定した原材料を除外して検索できる食の総合サイトです。
       探したい商品をより探しやすく。'
   </x-slot>
-    <div class="py-12">
+    <div class="py-1">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <section class="text-gray-600 body-font">
-            <div class="container mx-auto flex px-5 py-24 items-left justify-center flex-col">
-              <h1 class="title-font text-center sm:text-2xl text-2xl mb-4 font-medium text-gray-900">FOOCH</h1>
-              <h2 class="mb-2 text-center font-semibold">食べたいものを原材料で選ぶ</h2>
-              <p class="text-center text-mf">多様化していく食環境のために</p><br><br>
-      
-              <ul class="top_image">
-                <li class="two_image"><img class="object-contain" src="../../../images/egg.jpg" alt="image description"></li>
-              </ul>
-      
-              <div class="container mx-auto flex px-5 py-10">
-                <h3 class="font-bold text-2xl underline decoration-mimosa">FOOCHとは</h3>
-              </div>
-              <div class="container mx-auto flex px-5">
-                <p class="test leading-relaxed">
-                    食品だけを取り扱う総合マーケットです。<br>
-                    探したい商品を見つけやすく、検索の手間が省けるような仕組みとなっています。<br><br>
-                    <br>
+            <div class="container mx-auto flex px-5 py-10 items-left justify-center flex-col">
+              <h1 class="text-start">S<span class="title-font">TORY</h1>
+
+              <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
+                <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">FOOCH<span class="under">の思い</span></h2>
+                <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">食物アレルギーを持つ人<br>
+                  グルテンフリー生活を送る人<br>
+                  添加物を気にする人<br>
+                  原材料は気にしたことなかったけれど、選べるなら選んでみたい人<br>
+                  体質、生き方、好き嫌い、<br>
+                  100人いれば100通りの食生活があり<br>
+                  食の多様化が進んでいます。
                 </p>
               </div>
-              <div class="container mx-auto flex px-5 py-10">
-                <p class="test leading-relaxed">
-                  <a class="font-bold text-2xl underline decoration-mimosa">FOOCHの特徴</a><br><br>
-                  探したい商品は<br>
-                  カテゴリーやキーワード検索から。<br>
-                  探したくない原材料はチェックボックスから。<br>
-                  目的の商品にたどり着けるようになっています。<br><br><br>
+              <div class="container mx-auto flex justify-between px-5 pb-10">
+                <img class="w-2/5 object-contain" src="../../../images/fooch1.jpg" alt="image description">
+                <img class="w-2/5 object-contain" src="../../../images/egg.jpg" alt="image description">
+              </div>
+
+              <div class="container mx-auto flex flex-col md:flex-row px-5 relative">
+                <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl"></h2>
+                <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">ネットで簡単に食品を購入できるようになった今、<br>
+                  なかなか目的の商品に辿り着けないことが増えてきました。<br>
+                  私もそのような悩みを抱えていた一人です。<br><br>
+                  目的の商品をもっと探しやすくできないだろうか？<br>
+                  その可能性を追求していこうと歩み出したのがFOOCH（フーチ）です。<br><br>
+                  {{-- 食品（food）だけに特化した検索（search）ができるマーケットへ。<br> --}}
                 </p>
               </div>
-      
-              <div class="container mx-auto flex px-5 py-10">
-                <p class="test leading-relaxed">
-                  <a class="font-bold text-2xl underline decoration-mimosa">FOOCHへの思い</a><br><br>
-                  グルテンフリー生活<br>
-                  無添加食品<br>
-                  食物アレルギー...etc<br><br>
-                  原材料を気にしたことはなかったけれど、<br>選べるなら選んでみたい人。<br><br>
-                  「体質」「生き方」「好き嫌い」<br>
-                  人の数だけ、それぞれにあった食生活があります。<br><br>
-      
-                  そんな食の多様化が進む時代に、<br><br>
-                  「原材料から選択できる環境を提供したい。」<br>
-                  「生産者様の商品へのこだわりや思いのつまった商品が、一人でも多くの方に届いて欲しい。」<br><br>
-                  そのような思いから立ち上げました。<br><br><br>
-                  生産者様の心の込もった商品を<br>
-                  いつでも買いたいときに。<br><br><br>
+
+              <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
+                <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl">食べたいものを<br><span class="under">原材料から選んでみよう</h2>
+                <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">キーワードやカテゴリーでは探したい商品を入力・選択できます。<br>
+                  さらに、商品に含まれてほしくない原材料を選択する機能がついています。<br>
+                  チェックボックスにチェックを入れた原材料は、基本的に商品に含まれていないものとなります。<br><br>
+                  目的の商品に、より簡単に辿り着けるはずです。<br>
                 </p>
               </div>
       
-              <div class="container mx-auto flex px-5 py-10"> 
-                <p class="test font-semibold leading-relaxed">
+              <div class="container mx-auto flex px-5 py-5"> 
+                <p class="test font-semibold text-sm sm:text-base leading-relaxed">
                   食物アレルギーに関しては、商品の原材料および各店舗様へご確認願います。<br>
                   重度の食物アレルギーがある方やご不明点等は各店舗様へ直接お問い合わせください。
                 </p>
                 <br>
               </div>
+              <div class="container mx-auto flex px-5 py-5"> 
+                <p class="text-xs sm:text-base leading-relaxed">
+                  ご購入には会員登録が必要となります。<br>
+                </p>
+              </div>
+              <a href="{{ route('register') }}" class="px-5">
+                <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷ 会員登録</p>
+              </a>
           </section>
         </div>
       </div>

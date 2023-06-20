@@ -23,45 +23,40 @@
         clear: both;
     }
     </style>
-<div class="text-center lg:w-full w-full flex items-center justify-center relative">
-    <a href="{{ route('top.whatis') }}" class="w-full relative block">
-        <img src="../../images/top.jpg" alt="fooch" class="w-full">
-        <div class="absolute inset-0 flex flex-col items-center justify-center">
-            <p class="text-sm sm:text-lg leading-relaxed text-gray-700">素材から価値を</p>
-            <p class="text-sm sm:text-lg mb-6 leading-relaxed text-gray-700">食の総合マーケット</p>
-            <p class="text-sm sm:text-sm mb-8 leading-relaxed text-gray-700">選択した原材料が入っていない食品を検索</p>
+    <div class="relative lg:w-full w-full flex items-center justify-center text-center">
+        <img src="../../images/foochtop.jpg" alt="fooch" class="w-full">
+
+        <div class="absolute right-0 w-1/2 flex flex-col justify-center items-start text-left p-5 bg-semi-transparent-yellow">
+            <p class="text-xs sm:text-lg font-bold leading-relaxed text-gray-700 sm:mb-4">原材料から始まる食のstory</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">体質、生き方、好き嫌い、</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">100人いれば100通りの食生活（story）がある</p>
+            <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-4">食べたいものを原材料から選んでみよう</p>
+            <a href="{{ route('top.whatis') }}" class="w-full relative block">
+            <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
+            </a>
         </div>
-    </a>
-</div>
-
-
-
+    </div>
+         
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <form method="get" action="{{ route('top.index') }}">
                 <div class="row">
-                <div class="col-12">
-                    <p class="h5 mr-5 ml-5">キーワード</p>
-                    <div>
-                        <div class="mb-10 mr-5 ml-5"><input name="keyword" placeholder="キーワード" class="w-full bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></div>
-                    </div>
-                    <p class="h5 mr-5 ml-5">カテゴリー</p>
-                    <div class="row">
-                        <div class="col-md-8 mb-5 mr-5 ml-5">
-                        <div id="categories">
-                            <select name="category" class="w-full mt-2 mb-10 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                <option value="0" @if(\Request::get('category') === '0') selected @endif>全て</option>
-                                @foreach($categories as $index => $name)
-                                <option value="{{ $index }}" @if(\Request::get('category') == $index) checked @endif>{{ $name }}</option>
-                                @endforeach
-                            </select>
+                    <div class="col-12">
+                        <div class="d-flex justify-content-start">
+                            <div class="mb-5 mr-5 ml-5">
+                                <input name="keyword" placeholder="キーワード" class="w-2/5 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <select name="category" class="2/5 mt-2 mb-10 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option value="0" @if(\Request::get('category') === '0') selected @endif>全て</option>
+                                    @foreach($categories as $index => $name)
+                                    <option value="{{ $index }}" @if(\Request::get('category') == $index) checked @endif>{{ $name }}</option>
+                                    @endforeach
+                                </select>
+                                <button class="bg-lyellow border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500">検索</button>
+                            </div>
                         </div>
-                        </div>
-                    </div>
-                
-                    <p class="h5 mr-5 ml-4">除外したい原材料を選択してください</p>
-                    <p class="h6 mt-5 ml-2">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
-
+                        <p class="text-xs sm:text-base mr-5 ml-4 mb-2 font-bold leading-relaxed text-gray-700 underline decoration-solid">▽and more</p>
+                        <p class="text-xs md:text-base mr-5 ml-4">除外したい原材料がある場合は選択してください</p>
+                        <p class="text-xs md:text-sm mt-5 ml-5">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
                         <div id="exclusions" name="exclusion_id">
                             <option value="" @if(\Request::get('exclusion') === '') selected @endif></option>
                             @foreach($exclusions as $index => $name)
@@ -71,10 +66,10 @@
                             </label>
                             @endforeach
                         </div>
-                </div>
+                    </div>
                 </div>
                 <div class="text-center p-2 mt-4 mb-5 search-button">
-                    <button class="bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600">検索</button>
+                    <button class="bg-mimosa border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500">検索</button>
                 </div> 
             </form>
     
@@ -97,8 +92,9 @@
                                     @if($index === $product->category_id)
                                     <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $category_name }}</h3> 
                                     @endif
-                                    @endforeach 
-                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
+                                    @endforeach
+                                    <h2 class="text-gray-900 title-font text-sm sm:text-base font-medium">{{ $product->name }}</h2>
+                                    {{-- <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2> --}}
                                     <p class="mt-1">{{ number_format($product->price) }}<span class="text-sm text-gray-700">円(税込)</span></p>
                                     <!-- 在庫チェック -->
                                     @if($product->getStockQuantity() == 0)
