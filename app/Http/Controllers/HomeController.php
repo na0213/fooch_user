@@ -71,4 +71,9 @@ class HomeController extends Controller
     {
         return view('home.legal');
     }
+
+    public function privacy()
+    {
+        return view('home.privacy');
+    }
 }

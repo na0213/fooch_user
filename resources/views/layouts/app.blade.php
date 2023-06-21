@@ -49,7 +49,9 @@
                         </x-nav-link>
                     </li>
                     <li class="mb-4">
-                        <a href="#"  class="hover:underline">よくある質問</a>
+                        <x-nav-link :href="route('items.index')" :active="request()->routeIs('items.index')">
+                            {{ __('商品一覧') }}
+                        </x-nav-link>
                     </li>
                     <li class="mb-4">
                         <x-nav-link :href="route('contact.index')" :active="request()->routeIs('contact.index')">
@@ -71,10 +73,9 @@
                         </x-nav-link>
                     </li>
                     <li class="mb-4">
-                        {{-- <a href="/legal" class="hover:underline">特定商取引法に基づく表記</a> --}}
-                    </li>
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">運営者</a>
+                        <x-nav-link :href="route('home.privacy')" :active="request()->routeIs('home.privacy')">
+                            {{ __('プライバシーポリシー') }}
+                        </x-nav-link>
                     </li>
                 </ul>
             </div>

@@ -80,7 +80,7 @@ input[type=checkbox] {
                             @foreach ($products as $product)
                             <div class="w-1/4 p-2 md:p-4">
                                 @if($product->getStockQuantity() > 0)
-                                <a href="{{ route('top.show', ['item' => $product->id ]) }}">
+                                <a href="{{ route('items.show', ['item' => $product->id ]) }}">
                                 @endif
                                     <div class="mt-4">
                                         @if($product->image !=='')

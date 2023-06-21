@@ -47,7 +47,7 @@
             </div>
             <div class="container mx-auto flex justify-between px-5 pb-10">
             <img class="w-2/5 object-contain" src="../../../images/fooch1.jpg" alt="image description">
-            <img class="w-2/5 object-contain" src="../../../images/fooch4.jpg" alt="image description">
+            <img class="w-2/5 object-contain" src="../../../images/fooch3.jpg" alt="image description">
             </div>
 
             <div class="container mx-auto flex flex-col md:flex-row px-5 relative">
@@ -77,14 +77,6 @@
             </p>
             <br>
             </div>
-            <div class="container mx-auto flex px-5 py-5"> 
-            <p class="text-xs sm:text-base leading-relaxed">
-                ご購入には会員登録が必要となります。<br>
-            </p>
-            </div>
-            <a href="{{ route('register') }}" class="px-5">
-            <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷ 会員登録</p>
-            </a>
         </section>
     </div>
     </div>    

@@ -31,6 +31,7 @@ Route::get('/top/owner_contact', [TopController::class, 'ownercontact'])->name('
 Route::post('/top/owner_contact', [TopController::class, 'sendOwnerContact'])->name('top.send_owner_contact');
 Route::get('/terms', [TopController::class, 'terms'])->name('terms');
 Route::get('/legal', [TopController::class, 'legal'])->name('legal');
+Route::get('/privacy', [TopController::class, 'privacy'])->name('privacy');
 // Route::get('/', function () {
 //     return view('welcome');
 // })->name('welcome');
@@ -45,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home/whatis', [HomeController::class, 'whatis'])->name('home.whatis');
     Route::get('/home/terms', [HomeController::class, 'terms'])->name('home.terms');
     Route::get('/home/legal', [HomeController::class, 'legal'])->name('home.legal');
+    Route::get('/home/privacy', [HomeController::class, 'privacy'])->name('home.privacy');
 
     //商品
     Route::get('/index',  [ItemController::class, 'index'])->name('items.index');

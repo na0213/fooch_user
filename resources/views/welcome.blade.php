@@ -8,26 +8,45 @@
         探したい商品をより探しやすく。'
     </x-slot>
     <style>
+        h1 {
+            font-size: 40px;
+            color: #faee41;
+        }
+        .title-font {
+            font-size: 20px;
+            color: gray;
+        }
         #exclusions label {
-        display: block;
-        float: left;
-        width: 150px;
-        cursor: pointer;
-        margin: 0 0 20px 30px;
-    }
+            display: block;
+            float: left;
+            width: 150px;
+            cursor: pointer;
+            margin: 0 0 20px 30px;
+        }
         input[type=checkbox] {
             transform: scale(1.5);
             margin: 0 15px 0 0;
         }
         .search-button {
-        clear: both;
-    }
+            clear: both;
+        }
+        @media screen and (max-width: 600px) {
+        h1 {
+            font-size: 20px;
+            color: #faee41;
+        }
+        .title-font {
+            font-size: 12px;
+            color: gray;
+        }
+        }
     </style>
     <div class="relative lg:w-full w-full flex items-center justify-center text-center">
         <img src="../../images/foochtop.jpg" alt="fooch" class="w-full">
 
         <div class="absolute right-0 w-1/2 flex flex-col justify-center items-start text-left p-5 bg-semi-transparent-yellow">
-            <p class="text-xs sm:text-lg font-bold leading-relaxed text-gray-700 sm:mb-4">原材料から始まる食のstory</p>
+            <h1 class="text-start font-bold">原<span class="title-font">材料から始まる食のstory</h1>
+            {{-- <p class="text-xs sm:text-lg font-bold leading-relaxed text-gray-700 sm:mb-4">原材料から始まる食のstory</p> --}}
             <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">体質、生き方、好き嫌い、</p>
             <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">100人いれば100通りの食生活（story）がある</p>
             <p class="text-xs sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-4">食べたいものを原材料から選んでみよう</p>

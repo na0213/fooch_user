@@ -47,7 +47,7 @@
           </div>
           <div class="container mx-auto flex justify-between px-5 pb-10">
             <img class="w-2/5 object-contain" src="../../../images/fooch1.jpg" alt="image description">
-            <img class="w-2/5 object-contain" src="../../../images/fooch4.jpg" alt="image description">
+            <img class="w-2/5 object-contain" src="../../../images/fooch3.jpg" alt="image description">
           </div>
 
           <div class="container mx-auto flex flex-col md:flex-row px-5 relative">

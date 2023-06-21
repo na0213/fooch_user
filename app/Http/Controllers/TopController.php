@@ -118,4 +118,9 @@ class TopController extends Controller
     {
         return view('legal');
     }
+
+    public function privacy()
+    {
+        return view('privacy');
+    }
 }
