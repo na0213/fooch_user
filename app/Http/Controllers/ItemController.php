@@ -59,6 +59,8 @@ class ItemController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $user_prefecture = $user->prefecture; // ユーザーの都道府県を取得
         $product = Product::with('shipping_pattern')->findOrFail($id);
+        // カテゴリーIDに対応するカテゴリー名を取得
+        $category = config('category')[$product->category_id];
         $categories = config('category');
         $exclusions = config('exclusion');
 
@@ -79,7 +81,7 @@ class ItemController extends Controller
             $quantity = 9;
         }
 
-        return view('items.show', compact('product','categories','quantity','product_images', 'imagearray','exclusions', 'user_prefecture'));
+        return view('items.show', compact('product','categories','quantity','product_images', 'imagearray','exclusions', 'user_prefecture', 'category'));
     }
 
     public function favorite(Request $request, Product $product)
@@ -91,7 +93,20 @@ class ItemController extends Controller
         $favoritesCount = $product->favorites()->count();
     
         return ['isFavorite' => !$isFavorite, 'favoritesCount' => $favoritesCount];
-    }    
+    }
+
+    public function category($category)
+    {
+        $categories = config('category');
+        $exclusions = config('exclusion');
+
+        // 指定されたカテゴリーの商品を取得します
+        $products = Product::where('category_id', $category)
+            ->paginate(20);
+
+        return view('items.category', compact('products','categories','exclusions'));
+    }
+
 
     public function favorites(Request $request)
     {

@@ -1,7 +1,7 @@
 <x-app-layout>
-    {{-- {{ Breadcrumbs::render('items.show', $category, $product) }} --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            {{ Breadcrumbs::render('items.show', $category, $product) }}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <section class="text-gray-600 body-font overflow-hidden">
                     <div class="container px-3 py-10 mx-auto">

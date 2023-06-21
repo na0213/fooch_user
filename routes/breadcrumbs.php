@@ -2,13 +2,13 @@
 
 // ホーム
 Breadcrumbs::for('home', function ($trail) {
-    $trail->push('Home', route('home'));
+    $trail->push('Home', route('dashboard'));
 });
 
 // ホーム > 商品一覧
 Breadcrumbs::for('items.index', function ($trail) {
     $trail->parent('home');
-    $trail->push('Items', route('items.index'));
+    $trail->push('商品一覧', route('items.index'));
 });
 
 // ホーム > 商品一覧 > [カテゴリー名]

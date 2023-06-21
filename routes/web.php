@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
     Route::post('/products/{product}/favorite', [ItemController::class, 'favorite']);
     Route::get('/favorites',  [ItemController::class, 'favorites'])->name('items.favorites');
+    Route::get('/category/{category}', [ItemController::class, 'category'])->name('items.category');
 
     //店舗
     Route::get('/stores/{store}', [StoreController::class, 'show'])->name('store.show');
