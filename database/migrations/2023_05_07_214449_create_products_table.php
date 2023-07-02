@@ -35,6 +35,7 @@ return new class extends Migration
             $table->text('origin')->nullable(); //原産地
             $table->text('nutrition_facts')->nullable(); //栄養成分
             $table->text('info')->nullable();
+            $table->integer('max_purchase_quantity')->default(1);
             $table->string('status')->nullable()->default(null);
             $table->datetime('created_at');
             $table->datetime('updated_at');

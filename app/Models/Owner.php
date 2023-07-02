@@ -33,7 +33,10 @@ class Owner extends Model
     // public function sendPasswordResetNotification($token){
     //     $this->notify(new ResetPasswordNotification($token));
     // }
-
+    // public function owner()
+    // {
+    //     return $this->store()->owner();
+    // }
     public function store()
     {
         return $this->hasOne(Store::class);

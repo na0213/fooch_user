@@ -20,12 +20,6 @@
             <li>合計金額：{{ $item['price'] * $item['quantity'] + $item['shipping_fee'] }}円</li>
         </ul>
 
-        <div class="mb-4">購入者情報</div>
-        <ul>
-            <li>ご注文者様氏名：{{ $user->name }} 様</li>
-            <li>ご注文者様メールアドレス：{{ $user->email }}</li>
-        </ul>
-
         <div class="mb-4">配送先</div>
         <p>{{ $shipping_address['name'] }} 様</p>
         <p>〒{{ $shipping_address['zipcode'] }}</p>

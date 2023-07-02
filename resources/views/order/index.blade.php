@@ -44,6 +44,9 @@
                 <th scope="col" class="px-6 py-2 whitespace-nowrap">
                   注文詳細
                 </th>
+                <th scope="col" class="px-6 py-2 whitespace-nowrap">
+                  取引画面
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -78,9 +81,15 @@
                   {{ $order->created_at }}
                 </td>
                 <td scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <button onclick="location.href='{{ route('order.show', ['order' => $order->id]) }}'" class="px-3 py-2 text-black bg-detail text-md hover:bg-yellow-500">詳細</button>
+                  <button onclick="location.href='{{ route('order.show', ['order' => $order->id]) }}'" class="px-3 py-2 text-black bg-lgreen text-md hover:bg-green-500">詳細</button>
                 </td>
-    
+                <td scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  @if($order->order_status == 'prior' || $order->order_status == 'shipped')
+                    <button onclick="location.href='{{ route('order.conversation', ['order' => $order->id]) }}'" class="px-3 py-2 text-black bg-lorange text-md hover:bg-orange-500">取引画面</button>
+                  @else
+                    <button disabled>取引画面</button>
+                  @endif
+                </td>
               </tr>
               @endforeach
             </tbody>

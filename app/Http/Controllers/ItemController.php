@@ -75,7 +75,10 @@ class ItemController extends Controller
             $imagearray[] = $image;
         }
 
-        $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+        $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
+        $maxPurchaseQuantity = $product->max_purchase_quantity;
+        // 在庫数とmax_purchase_quantityの小さい方を選択肢として表示する
+        $quantity = min($stockQuantity, $maxPurchaseQuantity);
 
         if($quantity > 9){
             $quantity = 9;

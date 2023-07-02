@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use App\Models\Owner;
+use App\Models\Store;
 use App\Models\Product;
 use App\Models\OrderHistory;
 
@@ -38,7 +40,25 @@ class Order extends Model
         'shipping_tel',
         'created_at'
     ];
-
+    // public function owner()
+    // {
+    //     return $this->hasOneThrough(
+    //         Owner::class,
+    //         Store::class,
+    //         'id', // Store table foreign key
+    //         'id', // Owner table foreign key
+    //         'store_id', // Order table local key
+    //         'owner_id' // Store table local key
+    //     );
+    // }
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function product()
     {
         return $this->belongsTo(Product::class);

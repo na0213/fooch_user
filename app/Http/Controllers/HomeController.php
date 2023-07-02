@@ -56,7 +56,15 @@ class HomeController extends Controller
 
         return view('home.index', compact('products','categories','exclusions'));
     }
-
+    public function foochfaq()
+    {
+        return view('home.fooch_faq');
+    }
+    public function faq100()
+    {
+        return view('home.faq.faq100');
+    }
+    
     public function whatis()
     {
         return view('home.whatis');
@@ -75,5 +83,10 @@ class HomeController extends Controller
     public function privacy()
     {
         return view('home.privacy');
+    }
+
+    public function about()
+    {
+        return view('home.about');
     }
 }

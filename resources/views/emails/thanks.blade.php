@@ -22,10 +22,10 @@
     @endforeach
 
     <p>配送先:</p>
-    <p>{{ $shipping_address['name'] }}</p>
+    <p>{{ $shipping_address['name'] }}様</p>
     <p>〒{{ $shipping_address['zipcode'] }}</p>
     <p>{{ $shipping_address['prefecture'] }}{{ $shipping_address['city'] }}</p>
-    <p>電話番号: {{ $shipping_address['tel'] }}</p>
+    <p>{{ $shipping_address['tel'] }}</p>
     
     <p>引き続きよろしくお願いいたします。</p>
     <p>{{ config('app.name') }}</p>

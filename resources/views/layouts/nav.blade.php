@@ -54,9 +54,6 @@
             <x-responsive-nav-link :href="route('top.index')" :active="request()->routeIs('items.index')">
                 {{ __('商品一覧') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('top.whatis')" :active="request()->routeIs('top.whatis')">
-                {{ __('購入履歴') }}
-            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('top.owner_contact')" :active="request()->routeIs('top.owner_contact')">
                 {{ __('出店ご希望の方') }}
             </x-responsive-nav-link>

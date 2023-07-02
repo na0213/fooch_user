@@ -10,6 +10,7 @@ use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\ConversationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,15 +27,16 @@ Route::get('/', [TopController::class, 'welcome'])->name('welcome');
 Route::get('/top/index',  [TopController::class, 'index'])->name('top.index');
 Route::get('/top/show/{item}', [TopController::class, 'show'])->name('top.show');
 Route::get('/top/store/{store}', [TopController::class, 'store'])->name('top.store');
+Route::get('/top/{store}/specific-business-transaction', [TopController::class, 'specificBusinessTransaction'])->name('top.specificBusinessTransaction');
 Route::get('/top/whatis', [TopController::class, 'whatis'])->name('top.whatis');
 Route::get('/top/owner_contact', [TopController::class, 'ownercontact'])->name('top.owner_contact');
 Route::post('/top/owner_contact', [TopController::class, 'sendOwnerContact'])->name('top.send_owner_contact');
 Route::get('/terms', [TopController::class, 'terms'])->name('terms');
 Route::get('/legal', [TopController::class, 'legal'])->name('legal');
 Route::get('/privacy', [TopController::class, 'privacy'])->name('privacy');
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome');
+Route::get('/about', [TopController::class, 'about'])->name('about');
+Route::get('/top/fooch_faq', [TopController::class, 'foochfaq'])->name('top.fooch_faq');
+Route::get('/top/faq/faq100', [TopController::class, 'faq100'])->name('top.faq.faq100');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
@@ -47,6 +49,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/home/terms', [HomeController::class, 'terms'])->name('home.terms');
     Route::get('/home/legal', [HomeController::class, 'legal'])->name('home.legal');
     Route::get('/home/privacy', [HomeController::class, 'privacy'])->name('home.privacy');
+    Route::get('/home/about', [HomeController::class, 'about'])->name('home.about');
+    Route::get('/home/fooch_faq', [HomeController::class, 'foochfaq'])->name('home.fooch_faq');
+    Route::get('/home/faq/faq100', [HomeController::class, 'faq100'])->name('home.faq.faq100');
 
     //商品
     Route::get('/index',  [ItemController::class, 'index'])->name('items.index');
@@ -71,6 +76,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/order', [OrderController::class, 'index'])->name('order.index');
     Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::patch('/order/{order}/update-status', [OrderController::class, 'updateStatus'])->name('order.updateStatus');
+
+    Route::get('/order/{order}/conversation', [ConversationController::class, 'show'])->name('order.conversation');
+    Route::post('/order/{order}/conversation', [ConversationController::class, 'send'])->name('conversation.send');
 
     //ユーザー
     Route::get('/user', [UserController::class, 'index'])->name('user.index');

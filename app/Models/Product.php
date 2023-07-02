@@ -35,6 +35,7 @@ class Product extends Model
         'origin',
         'nutrition_facts',
         'info',
+        'max_purchase_quantity',
         'status',
     ];
 
@@ -153,6 +154,7 @@ class Product extends Model
         'products.additives',
         'products.expiration',
         'products.allergy',
+        'products.max_purchase_quantity',
         'product_stores.name as store_name',
         );
     }

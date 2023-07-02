@@ -71,6 +71,17 @@ class TopController extends Controller
         return view('top.store', compact('store'));
     }
 
+    public function specificBusinessTransaction(Store $store)
+    {
+        $specificBusinessTransaction = $store->specificBusinessTransaction;
+    
+        if (!$specificBusinessTransaction) {
+            abort(404, 'Specific Business Transaction not found');
+        }
+    
+        return view('top.specific-business-transaction', compact('specificBusinessTransaction'));
+    }
+
     public function ownercontact()
     {
         return view('top.owner_contact');
@@ -104,6 +115,15 @@ class TopController extends Controller
         ]);
     }
 
+    public function foochfaq()
+    {
+        return view('top.fooch_faq');
+    }
+    public function faq100()
+    {
+        return view('top.faq.faq100');
+    }
+
     public function whatis()
     {
         return view('top.whatis');
@@ -122,5 +142,9 @@ class TopController extends Controller
     public function privacy()
     {
         return view('privacy');
+    }
+    public function about()
+    {
+        return view('about');
     }
 }

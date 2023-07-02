@@ -58,6 +58,11 @@
                             {{ __('お問合せ') }}
                         </x-nav-link>
                     </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('home.fooch_faq')" :active="request()->routeIs('home.fooch_faq')">
+                            {{ __('よくある質問') }}
+                        </x-nav-link>
+                    </li>
                 </ul>
             </div>
             <div>
@@ -77,10 +82,15 @@
                             {{ __('プライバシーポリシー') }}
                         </x-nav-link>
                     </li>
+                    <li class="mb-4">
+                        <x-nav-link :href="route('home.about')" :active="request()->routeIs('about')">
+                            {{ __('事業概要') }}
+                        </x-nav-link>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+        <div class="py-6 px-4 bg-gray-100 dark:bg-gray-700 text-center">
             <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">FOOCH</a>.
             </span>
         </div>

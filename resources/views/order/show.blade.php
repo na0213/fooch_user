@@ -13,7 +13,9 @@
                   <div>
                     <div class="mb-4 p-2 w-2/2 mx-auto">
                       <div class="relative">
-                        <label for="name" class="leading-7 text-sm text-gray-600">【配達が完了したらボタンを押してください】</label>             
+                        <label for="name" class="leading-7 text-sm text-gray-600">【配達が完了したらボタンを押してください】</label>
+                        <p class="leading-7 text-sm text-gray-600">配達完了になると取引メッセージはできなくなります。</p>
+                        <p class="leading-7 text-sm text-gray-600">商品に不備がないか確認してから変更してください。</p>
                             <form id="status-form" action="{{ route('order.updateStatus', $order->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
