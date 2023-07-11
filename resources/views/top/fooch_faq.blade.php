@@ -39,11 +39,27 @@
     </div>
     <div id="userFaq" style="display: none;" class="container mx-auto my-4 px-4 border">
         <p class="pt-2 leading-relaxed font-semibold text-sm md:text-base">購入方法について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq100') }}">支払い方法はクレジットカードのみですか？</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq101') }}">先払いのみですか？</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq102') }}">購入した商品をキャンセルしたいです</a>
+            </div>
+        <p class="pt-8 leading-relaxed font-semibold text-sm md:text-base">購入後について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq103') }}">届いた商品に不備がありました</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq104') }}">取引画面とはなんですか？</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('top.faq.faq105') }}">取引画面が使えないが店舗と連絡をとりたい</a>
+            </div>
         <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
-            <a href="{{ route('top.faq.faq100') }}">支払い方法はクレジットカードのみですか？</a>
-        </div>
-        <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
-            支払い方法
+            <a href="{{ route('top.faq.faq106') }}">退会はできますか？</a>
         </div>
     </div>
     <div id="ownerFaq" style="display: none;" class="container mx-auto my-4 px-4 border">

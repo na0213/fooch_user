@@ -123,6 +123,30 @@ class TopController extends Controller
     {
         return view('top.faq.faq100');
     }
+    public function faq101()
+    {
+        return view('top.faq.faq101');
+    }
+    public function faq102()
+    {
+        return view('top.faq.faq102');
+    }
+    public function faq103()
+    {
+        return view('top.faq.faq103');
+    }
+    public function faq104()
+    {
+        return view('top.faq.faq104');
+    }
+    public function faq105()
+    {
+        return view('top.faq.faq105');
+    }
+    public function faq106()
+    {
+        return view('top.faq.faq106');
+    }
 
     public function whatis()
     {

@@ -37,6 +37,12 @@ Route::get('/privacy', [TopController::class, 'privacy'])->name('privacy');
 Route::get('/about', [TopController::class, 'about'])->name('about');
 Route::get('/top/fooch_faq', [TopController::class, 'foochfaq'])->name('top.fooch_faq');
 Route::get('/top/faq/faq100', [TopController::class, 'faq100'])->name('top.faq.faq100');
+Route::get('/top/faq/faq101', [TopController::class, 'faq101'])->name('top.faq.faq101');
+Route::get('/top/faq/faq102', [TopController::class, 'faq102'])->name('top.faq.faq102');
+Route::get('/top/faq/faq103', [TopController::class, 'faq103'])->name('top.faq.faq103');
+Route::get('/top/faq/faq104', [TopController::class, 'faq104'])->name('top.faq.faq104');
+Route::get('/top/faq/faq105', [TopController::class, 'faq105'])->name('top.faq.faq105');
+Route::get('/top/faq/faq106', [TopController::class, 'faq106'])->name('top.faq.faq106');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
@@ -104,6 +110,8 @@ Route::middleware('auth')->group(function () {
     // Update birth
     Route::put('/user/{user}/update-birth', [UserController::class, 'updateBirth'])->name('user.update.birth');
 
+    Route::get('/user/confirmDelete/{id}', [UserController::class, 'confirmDelete'])->name('user.confirm.delete');
+    Route::delete('/user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

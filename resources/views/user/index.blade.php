@@ -20,6 +20,7 @@
             </a>
           </div> --}}
         {{-- 名前 --}}
+        <x-flash-message status="session('status')" />
         <div class="p-2 w-2/2 mx-auto">
           <div class="relative">
               <label for="name" class="leading-7 text-sm text-gray-600">お名前</label>
@@ -105,8 +106,12 @@
               </div>
               </div>
           </div>
-        </div>         
+        </div>     
 
+        <div class="mt-5 p-2 w-full flex justify-around mt-4">
+          <button onclick="location.href='{{ route('user.confirm.delete', $user->id) }}'" class="px-3 py-2 bg-lred hover:bg-red-500">退会画面へ進む</button>
+        </div>
+        
       </div>
     </div>
   </div>

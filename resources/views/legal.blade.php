@@ -23,24 +23,25 @@
           <p class="test leading-relaxed indent-text">日本語：フーチ</p><br><br>
           
           <p class="test leading-relaxed font-semibold">本社所在地</p><br>
-          <p class="test leading-relaxed indent-text">東京都港区南青山２－２　５F</p><br><br>
+          <p class="test leading-relaxed indent-text">〒107-0062</p>
+          <p class="test leading-relaxed indent-text">東京都港区南青山２－２－１５　WIN青山５３１</p><br><br>
           
           <p class="test leading-relaxed font-semibold">問い合わせ</p><br>
-          <p class="test leading-relaxed indent-text">メールアドレス：fooch.info@gmail.com</p><br><br>
+          <p class="test leading-relaxed indent-text">fooch.info@gmail.com</p><br><br>
           
           <p class="test leading-relaxed font-semibold">会員様のご利用に応じて発生する料金</p><br>
-          <p class="test leading-relaxed font-semibold">出品者様</p>
+          <p class="test leading-relaxed indent-text font-semibold">出品者様</p>
           <p class="test leading-relaxed indent-text">振込手数料として、売上のお受け取り時に一律200円（税込）</p>
           <p class="test leading-relaxed indent-text">商品を販売する場合：決済総額の一律10％（税込）</p><br>
           
-          <p class="test leading-relaxed font-semibold">購入者様</p>
+          <p class="test leading-relaxed indent-text font-semibold">購入者様</p>
           <p class="test leading-relaxed indent-text">ご購入商品のお支払い：クレジットカード決済</p><br><br>
           
           <p class="test leading-relaxed font-semibold">支払い時期・支払い方法</p><br>
-          <p class="test leading-relaxed font-semibold">出品者様</p>
-          <p class="test leading-relaxed indent-text">各種利用料金は、毎月集計し、当社がお預かりしている売上金の振込時に差し引かせていただきます。<br>
-            売上金の振込は、出品者様が振込申請を行った翌月末となります。</p><br>
-          <p class="test leading-relaxed font-semibold">購入者様</p>
+          <p class="test leading-relaxed indent-text font-semibold">出品者様</p>
+          <p class="test leading-relaxed indent-text">各種利用料金は、毎月集計し、当方がお預かりしている売上金の振込時に差し引かせていただきます。</p>
+          <p class="test leading-relaxed indent-text">売上金の振込は、出品者様が振込申請を行った翌月末となります。</p><br>
+          <p class="test leading-relaxed indent-text font-semibold">購入者様</p>
           <p class="test leading-relaxed indent-text">購入時</p><br>  <br>
           
           <p class="test leading-relaxed font-semibold">商品の引き渡し時期</p><br>

@@ -34,9 +34,9 @@
         <div class="container mx-auto flex px-5 py-10 items-left justify-center flex-col">
           <h1 class="text-start">S<span class="title-font">TORY</h1>
 
-          <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
+          <div class="container mx-auto flex flex-col md:flex-row px-5 py-2">
             <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">FOOCH<span class="under">の思い</span></h2>
-            <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">食物アレルギーを持つ人<br>
+            <p class="content ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">食物アレルギーを持つ人<br>
               グルテンフリー生活を送る人<br>
               添加物を気にする人<br>
               原材料は気にしたことなかったけれど、選べるなら選んでみたい人<br>
@@ -45,25 +45,23 @@
               食の多様化が進んでいます。
             </p>
           </div>
-          <div class="container mx-auto flex justify-between px-5 pb-10">
-            <img class="w-2/5 object-contain" src="../../../images/fooch1.jpg" alt="image description">
-            {{-- <img class="w-2/5 object-contain" src="../../../images/fooch3.jpg" alt="image description"> --}}
+          <div class="container mx-auto flex justify-between px-5 pb-5">
+            <img class="w-fll md:w-3/5 object-contain" src="../../../images/fooch1.jpg" alt="image description">
           </div>
 
           <div class="container mx-auto flex flex-col md:flex-row px-5 relative">
             <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl"></h2>
-            <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">ネットで簡単に食品を購入できるようになった今、<br>
+            <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">ネットで簡単に食品を購入できるようになった今、
               なかなか目的の商品に辿り着けないことが増えてきました。<br>
               私もそのような悩みを抱えていた一人です。<br><br>
               目的の商品をもっと探しやすくできないだろうか？<br>
               その可能性を追求していこうと歩み出したのがFOOCH（フーチ）です。<br><br>
-              {{-- 食品（food）だけに特化した検索（search）ができるマーケットへ。<br> --}}
             </p>
           </div>
 
-          <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
+          <div class="container mx-auto flex flex-col md:flex-row px-5 py-5">
             <h2 class="subtitle mb-4 mr-2 w-full md:w-1/3 text-2xl">食べたいものを<br><span class="under">原材料から選んでみよう</h2>
-            <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-xs sm:text-base">キーワードやカテゴリーでは探したい商品を入力・選択できます。<br>
+            <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">キーワードやカテゴリーでは探したい商品を入力・選択できます。<br>
               さらに、商品に含まれてほしくない原材料を選択する機能がついています。<br>
               チェックボックスにチェックを入れた原材料は、基本的に商品に含まれていないものとなります。<br><br>
               目的の商品に、より簡単に辿り着けるはずです。<br>
@@ -78,12 +76,12 @@
             <br>
           </div>
           <div class="container mx-auto flex px-5 py-5"> 
-            <p class="text-xs sm:text-base leading-relaxed">
+            <p class="text-sm sm:text-base leading-relaxed">
               ご購入には会員登録が必要となります。<br>
             </p>
           </div>
           <a href="{{ route('register') }}" class="px-5">
-            <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷ 会員登録</p>
+            <p class="text-sm sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷ 会員登録</p>
           </a>
       </section>
     </div>

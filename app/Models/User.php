@@ -43,6 +43,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
+    
     public function products()
     {
         return $this->belongsToMany(Product::class, 'carts') //第二引数：cart中間テーブル
@@ -52,7 +57,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(ShippingAddress::class);
     }
-
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
     public function favorites(): BelongsToMany
     {
         return $this->belongsToMany(Product::class, 'favorites');

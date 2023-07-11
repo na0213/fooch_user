@@ -19,13 +19,13 @@
           <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">所在地</td>
           <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">〒107-0062<br>東京都港区南青山２－２－１５　WIN青山５３１</td>
         </tr>
-        {{-- <tr>
+        <tr>
           <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">電話番号</td>
-          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">５３１</td>
-        </tr> --}}
+          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">03-6161-6412</td>
+        </tr>
         <tr>
           <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">事業内容</td>
-          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">WEBアプリ運営</td>
+          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">原材料から探せる食品ECサイト「FOOCH」の開発・運営</td>
         </tr>
       </table>
     </div>

@@ -187,5 +187,30 @@ class UserController extends Controller
         ->with(['message' => '生年月日が更新されました。', 
         'status' => 'info']);
     }
+
+    public function confirmDelete($id)
+    {
+        $user = User::find($id);
+        if ($user->carts->count() > 0 || $user->orders->where('order_status', '!=', 'completed')->count() > 0) {
+            return redirect()->route('user.index')->with([
+                'message' => 'カートに商品が残っているか、配送完了していない商品があります。',
+                'status' => 'alert',
+            ]);
+        }
+
+        return view('user.confirmDelete', compact('user'));
+    }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect()->route('welcome')->with([
+            'message' => '退会しました。ご利用いただきありがとうございました。',
+            'status' => 'alert',
+        ]);
+    }
+
     
 }

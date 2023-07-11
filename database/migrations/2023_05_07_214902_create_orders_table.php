@@ -23,10 +23,10 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->foreignId('user_id')
+            $table->foreignId('user_id')->nullable()
                 ->constrained()
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->integer('quantity');
             $table->unsignedInteger('price');
             $table->unsignedInteger('total_price');
