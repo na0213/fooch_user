@@ -3,12 +3,13 @@
     <div class="flex py-8 px-6 md:flex">
       <div class="w-full">
         <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：支払い方法はクレジットカードのみですか？</p>
+            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：売上が少なかった場合は翌月に繰越できますか？</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">
-              はい、クレジットカードのみのお支払いとなっています。<br>
-              （VISA,MASTER,JCB,AMEX対応）<br>
-              ※引き落とし時期はクレジットカード会社の締日により異なります。</p>
+              翌月への売上の繰越はできません。<br>
+              売上が少額であっても、入金をいたします。<br><br>
+              例）商品金額250円（登録下代）で設定した商品が１個だけ売上確定した場合、手数料10％と振込手数料200円を差し引いた、25円が振込となります。<br>
+            </p>
         </div>
       </div>
     </div>

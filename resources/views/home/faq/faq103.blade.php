@@ -1,12 +1,12 @@
-<x-guest-layout>
+<x-app-layout>
 <div class="container mx-auto my-2 px-4">
   <div class="flex py-8 px-6 md:flex">
     <div class="w-full">
       <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-          <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：先払いのみですか？</p>
+          <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：届いた商品に不備がありました</p>
           <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
           <p class="pt-2 leading-relaxed text-sm md:text-base">
-            はい、先払いのみとなります。<br></p>
+            ステータスを「配達完了」とする前に、取引画面より直接店舗へご連絡をお願いいたします。<br></p>
       </div>
     </div>
   </div>

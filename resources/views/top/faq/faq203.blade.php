@@ -3,12 +3,10 @@
     <div class="flex py-8 px-6 md:flex">
       <div class="w-full">
         <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：支払い方法はクレジットカードのみですか？</p>
+            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：手数料はかかりますか？</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">
-              はい、クレジットカードのみのお支払いとなっています。<br>
-              （VISA,MASTER,JCB,AMEX対応）<br>
-              ※引き落とし時期はクレジットカード会社の締日により異なります。</p>
+              売上金額総額の10％が手数料となります。<br></p>
         </div>
       </div>
     </div>

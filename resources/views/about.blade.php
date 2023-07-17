@@ -20,8 +20,8 @@
           <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">〒107-0062<br>東京都港区南青山２－２－１５　WIN青山５３１</td>
         </tr>
         <tr>
-          <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">電話番号</td>
-          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">03-6161-6412</td>
+          <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">メールアドレス</td>
+          <td class="pb-5 align-top w-2/3 mb-4 text-xs md:text-base">fooch.info@gmail.com</td>
         </tr>
         <tr>
           <td class="pb-5 align-top w-1/3 mb-4 text-xs md:text-base">事業内容</td>

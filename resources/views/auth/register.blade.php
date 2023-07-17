@@ -20,7 +20,6 @@
             <div class="container mx-auto flex px-5 py-10 items-left justify-center flex-col">
                 <h1 class="text-start">R<span class="title-font">EGISTER</h1>
                 <div class="container mx-auto px-5 py-10">
-                    <h2 class="subtitle mb-4 w-full text-2xl">{{ __('新規登録') }}</h2>
 
                     <form method="POST" action="{{ route('register.check') }}">
                         @csrf
@@ -30,6 +29,9 @@
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">名前</label>
                                 <input type="text" id="name" name="name" value="{{  old('name') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                @error('name')
+                                 <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- name_pronunciation -->
@@ -45,6 +47,9 @@
                                 <label for="name" class="leading-7 text-sm text-gray-600">郵便番号（ハイフン不要）</label>
                                 <input type="text" id="zipcode" name="zipcode" maxlength="8" onKeyUp="AjaxZip3.zip2addr('zipcode','','prefecture','city');" value="{{ old('zipcode') }}" 
                                 required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="1030013"/>
+                                @error('zipcode')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="p-2 w-2/2 mx-auto">
@@ -64,6 +69,9 @@
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">電話番号（ハイフン不要）</label>
                                 <input type="text" id="tel" name="tel" value="{{  old('tel') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                @error('tel')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- Email Address -->
@@ -71,6 +79,9 @@
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">メールアドレス</label>
                                 <input type="text" id="email" name="email" value="{{  old('email') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                @error('email')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <!-- Birth -->
@@ -98,14 +109,15 @@
                                 </select>
                                 </div>
                                 @error('birthdate')
-                                <span class="text-red-500">{{ $message }}</span>
+                                    <span class="text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
             
                         <!-- Password -->
                         <div class="mt-4">
-                            <x-input-label for="password" :value="__('Password')" />
+                            {{-- <x-input-label for="password" :value="__('Password')" /> --}}
+                            <x-input-label for="password" :value="__('パスワード(8文字以上)')" />
             
                             <x-text-input id="password" class="block mt-1 w-full"
                                             type="password"

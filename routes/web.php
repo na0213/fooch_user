@@ -43,6 +43,28 @@ Route::get('/top/faq/faq103', [TopController::class, 'faq103'])->name('top.faq.f
 Route::get('/top/faq/faq104', [TopController::class, 'faq104'])->name('top.faq.faq104');
 Route::get('/top/faq/faq105', [TopController::class, 'faq105'])->name('top.faq.faq105');
 Route::get('/top/faq/faq106', [TopController::class, 'faq106'])->name('top.faq.faq106');
+Route::get('/top/faq/faq107', [TopController::class, 'faq107'])->name('top.faq.faq107');
+
+Route::get('/top/faq/faq200', [TopController::class, 'faq200'])->name('top.faq.faq200');
+Route::get('/top/faq/faq201', [TopController::class, 'faq201'])->name('top.faq.faq201');
+Route::get('/top/faq/faq202', [TopController::class, 'faq202'])->name('top.faq.faq202');
+Route::get('/top/faq/faq203', [TopController::class, 'faq203'])->name('top.faq.faq203');
+Route::get('/top/faq/faq204', [TopController::class, 'faq204'])->name('top.faq.faq204');
+Route::get('/top/faq/faq205', [TopController::class, 'faq205'])->name('top.faq.faq205');
+Route::get('/top/faq/faq206', [TopController::class, 'faq206'])->name('top.faq.faq206');
+Route::get('/top/faq/faq207', [TopController::class, 'faq207'])->name('top.faq.faq207');
+Route::get('/top/faq/faq208', [TopController::class, 'faq208'])->name('top.faq.faq208');
+Route::get('/top/faq/faq209', [TopController::class, 'faq209'])->name('top.faq.faq209');
+Route::get('/top/faq/faq210', [TopController::class, 'faq210'])->name('top.faq.faq210');
+Route::get('/top/faq/faq211', [TopController::class, 'faq211'])->name('top.faq.faq211');
+Route::get('/top/faq/faq212', [TopController::class, 'faq212'])->name('top.faq.faq212');
+Route::get('/top/faq/faq213', [TopController::class, 'faq213'])->name('top.faq.faq213');
+Route::get('/top/faq/faq214', [TopController::class, 'faq214'])->name('top.faq.faq214');
+Route::get('/top/faq/faq215', [TopController::class, 'faq215'])->name('top.faq.faq215');
+Route::get('/top/faq/faq216', [TopController::class, 'faq216'])->name('top.faq.faq216');
+Route::get('/top/faq/faq217', [TopController::class, 'faq217'])->name('top.faq.faq217');
+Route::get('/top/faq/faq218', [TopController::class, 'faq218'])->name('top.faq.faq218');
+Route::get('/top/faq/faq219', [TopController::class, 'faq219'])->name('top.faq.faq219');
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
@@ -58,6 +80,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/home/about', [HomeController::class, 'about'])->name('home.about');
     Route::get('/home/fooch_faq', [HomeController::class, 'foochfaq'])->name('home.fooch_faq');
     Route::get('/home/faq/faq100', [HomeController::class, 'faq100'])->name('home.faq.faq100');
+    Route::get('/home/faq/faq101', [HomeController::class, 'faq101'])->name('home.faq.faq101');
+    Route::get('/home/faq/faq102', [HomeController::class, 'faq102'])->name('home.faq.faq102');
+    Route::get('/home/faq/faq103', [HomeController::class, 'faq103'])->name('home.faq.faq103');
+    Route::get('/home/faq/faq104', [HomeController::class, 'faq104'])->name('home.faq.faq104');
+    Route::get('/home/faq/faq105', [HomeController::class, 'faq105'])->name('home.faq.faq105');
+    Route::get('/home/faq/faq106', [HomeController::class, 'faq106'])->name('home.faq.faq106');
+    Route::get('/home/faq/faq107', [HomeController::class, 'faq107'])->name('home.faq.faq107');
 
     //商品
     Route::get('/index',  [ItemController::class, 'index'])->name('items.index');

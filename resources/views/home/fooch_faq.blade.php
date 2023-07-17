@@ -34,15 +34,40 @@
         <button id="userButton" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-lyellow text-xs md:text-base">購入者様向け</button>
       </div>
     </div>
-    <div id="userFaq" class="container mx-auto my-4 px-4 border">
-        <p class="pt-2 leading-relaxed font-semibold text-sm md:text-base">購入方法について</p><br>
-        <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
-            <a href="{{ route('home.faq.faq100') }}">支払い方法はクレジットカードのみですか？</a>
-        </div>
-        <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
-            支払い方法
-        </div>
+    <div id="userFaq" style="display: none;" class="container mx-auto my-4 py-4 px-4 border">
+        <p class="pt-2 leading-relaxed font-semibold text-sm md:text-base">決済について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq100') }}">支払い方法はクレジットカードのみですか？</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq101') }}">先払いのみですか？</a>
+            </div>
+
+        <p class="pt-8 leading-relaxed font-semibold text-sm md:text-base">購入後について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq102') }}">購入した商品をキャンセルしたいです</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq103') }}">届いた商品に不備がありました</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq104') }}">配送ステータスとはなんですか？</a>
+            </div>
+
+        <p class="pt-8 leading-relaxed font-semibold text-sm md:text-base">取引画面について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq105') }}">取引画面とはなんですか？</a>
+            </div>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq106') }}">取引画面が使えないが店舗と連絡をとりたい</a>
+            </div>
+
+        <p class="pt-8 leading-relaxed font-semibold text-sm md:text-base">退会について</p><br>
+            <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
+                <a href="{{ route('home.faq.faq107') }}">退会はできますか？</a>
+            </div>
     </div>
+
 </div>
 
 </x-app-layout>

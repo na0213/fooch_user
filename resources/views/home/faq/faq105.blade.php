@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
 <div class="container mx-auto my-2 px-4">
   <div class="flex py-8 px-6 md:flex">
     <div class="w-full">

@@ -159,6 +159,8 @@ return [
 
     'attributes' => [
         'name' => '名前',
+        'zipcode' => '郵便番号',
+        'tel' => '電話番号',
         'email' => 'メールアドレス',
         'password' => 'パスワード'
     ],

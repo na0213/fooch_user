@@ -591,8 +591,12 @@ video {
   margin-top: 1.5rem;
 }.mt-8 {
   margin-top: 2rem;
+}.mb-8 {
+  margin-bottom: 2rem;
 }.block {
   display: block;
+}.inline {
+  display: inline;
 }.flex {
   display: flex;
 }.inline-flex {
@@ -613,8 +617,6 @@ video {
   height: 1.5rem;
 }.h-8 {
   height: 2rem;
-}.h-9 {
-  height: 2.25rem;
 }.min-h-screen {
   min-height: 100vh;
 }.w-1\/2 {
@@ -697,6 +699,8 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }.grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}.flex-row {
+  flex-direction: row;
 }.flex-col {
   flex-direction: column;
 }.flex-wrap {
@@ -1043,6 +1047,9 @@ video {
 }.text-indigo-700 {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
+}.text-lblue {
+  --tw-text-opacity: 1;
+  color: rgb(84 195 241 / var(--tw-text-opacity));
 }.text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -1055,6 +1062,15 @@ video {
 }.text-yellow-700 {
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
+}.text-lorange {
+  --tw-text-opacity: 1;
+  color: rgb(249 194 112 / var(--tw-text-opacity));
+}.text-lgreen {
+  --tw-text-opacity: 1;
+  color: rgb(193 219 129 / var(--tw-text-opacity));
+}.text-lred {
+  --tw-text-opacity: 1;
+  color: rgb(239 132 92 / var(--tw-text-opacity));
 }.underline {
   text-decoration-line: underline;
 }.decoration-mimosa {
@@ -1378,7 +1394,13 @@ video {
     font-size: 1rem;
     line-height: 1.5rem;
   }
-}@media (min-width: 768px) {.md\:flex {
+}@media (min-width: 768px) {.md\:relative {
+    position: relative;
+  }.md\:mb-8 {
+    margin-bottom: 2rem;
+  }.md\:mb-10 {
+    margin-bottom: 2.5rem;
+  }.md\:flex {
     display: flex;
   }.md\:w-1\/2 {
     width: 50%;
@@ -1388,10 +1410,26 @@ video {
     width: 66.666667%;
   }.md\:w-3\/5 {
     width: 60%;
+  }.md\:w-1\/4 {
+    width: 25%;
+  }.md\:w-2\/4 {
+    width: 50%;
+  }.md\:w-1\/5 {
+    width: 20%;
+  }.md\:w-2\/5 {
+    width: 40%;
+  }.md\:w-3\/4 {
+    width: 75%;
+  }.md\:w-4\/5 {
+    width: 80%;
   }.md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }.md\:flex-row {
     flex-direction: row;
+  }.md\:self-start {
+    align-self: flex-start;
+  }.md\:self-center {
+    align-self: center;
   }.md\:p-4 {
     padding: 1rem;
   }.md\:p-8 {

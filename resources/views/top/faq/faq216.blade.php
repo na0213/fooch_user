@@ -3,12 +3,12 @@
     <div class="flex py-8 px-6 md:flex">
       <div class="w-full">
         <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：支払い方法はクレジットカードのみですか？</p>
+            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：商品の写真は変更できますか？</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">
-              はい、クレジットカードのみのお支払いとなっています。<br>
-              （VISA,MASTER,JCB,AMEX対応）<br>
-              ※引き落とし時期はクレジットカード会社の締日により異なります。</p>
+              恐れ入りますが、商品の画像変更はできかねます。<br>
+              一度削除いただき、再度商品登録をお願いいたします。<br>
+              </p>
         </div>
       </div>
     </div>

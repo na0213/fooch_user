@@ -3,12 +3,10 @@
     <div class="flex py-8 px-6 md:flex">
       <div class="w-full">
         <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：支払い方法はクレジットカードのみですか？</p>
+            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：設定した「発送日目安」より遅れそうです</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">
-              はい、クレジットカードのみのお支払いとなっています。<br>
-              （VISA,MASTER,JCB,AMEX対応）<br>
-              ※引き落とし時期はクレジットカード会社の締日により異なります。</p>
+              取引画面より、購入者様へご連絡をお願いいたします。<br></p>
         </div>
       </div>
     </div>

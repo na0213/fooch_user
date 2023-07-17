@@ -3,12 +3,12 @@
     <div class="flex py-8 px-6 md:flex">
       <div class="w-full">
         <div id="ownerFaq" class="container mx-auto my-4 py-5 px-4 border">
-            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：支払い方法はクレジットカードのみですか？</p>
+            <p class="pt-2 leading-relaxed font-semibold text-lblue text-sm md:text-base">Q：取引画面とはなんですか？</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">A：</p>
             <p class="pt-2 leading-relaxed text-sm md:text-base">
-              はい、クレジットカードのみのお支払いとなっています。<br>
-              （VISA,MASTER,JCB,AMEX対応）<br>
-              ※引き落とし時期はクレジットカード会社の締日により異なります。</p>
+              商品が購入された場合にのみ、注文画面の取引画面より、購入者様へ連絡がとれます。<br>
+              ステータスが「発送前」「発送済」のみ連絡が可能で、「配達完了」となると取引画面は見れなくなります。<br>
+              発送遅延や予想外のトラブル以外、必要以上の連絡は避けていただくようお願いいたします。</p>
         </div>
       </div>
     </div>

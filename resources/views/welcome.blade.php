@@ -50,7 +50,7 @@
             <p class="text-sm sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">100人いれば100通りの食生活-story-がある</p>
             <p class="text-sm sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-4">食べたいものを原材料から選んでみよう</p>
             <a href="{{ route('top.whatis') }}" class="w-full relative block">
-            <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
+            <p class="text-sm sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
             </a>
         </div>
     </div>

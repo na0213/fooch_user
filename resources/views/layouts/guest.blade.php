@@ -8,6 +8,7 @@
         <title>【原材料から選ぶ】食の総合マーケット</title>
         <meta name="description" content="{{ $description ?? '食品の原材料から、除外したい原材料を指定して検索できる食の総合サイト。食の多様化が進む時代に、探したいものをより探しやすく。' }}">
 
+        <link rel="icon" href="/favicon.png">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />

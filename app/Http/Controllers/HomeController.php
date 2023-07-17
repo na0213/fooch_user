@@ -64,6 +64,34 @@ class HomeController extends Controller
     {
         return view('home.faq.faq100');
     }
+    public function faq101()
+    {
+        return view('home.faq.faq101');
+    }
+    public function faq102()
+    {
+        return view('home.faq.faq102');
+    }
+    public function faq103()
+    {
+        return view('home.faq.faq103');
+    }
+    public function faq104()
+    {
+        return view('home.faq.faq104');
+    }
+    public function faq105()
+    {
+        return view('home.faq.faq105');
+    }
+    public function faq106()
+    {
+        return view('home.faq.faq106');
+    }
+    public function faq107()
+    {
+        return view('home.faq.faq107');
+    }
     
     public function whatis()
     {

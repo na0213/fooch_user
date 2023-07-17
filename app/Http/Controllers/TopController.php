@@ -147,6 +147,90 @@ class TopController extends Controller
     {
         return view('top.faq.faq106');
     }
+    public function faq107()
+    {
+        return view('top.faq.faq107');
+    }
+    public function faq200()
+    {
+        return view('top.faq.faq200');
+    }
+    public function faq201()
+    {
+        return view('top.faq.faq201');
+    }
+    public function faq202()
+    {
+        return view('top.faq.faq202');
+    }
+    public function faq203()
+    {
+        return view('top.faq.faq203');
+    }
+    public function faq204()
+    {
+        return view('top.faq.faq204');
+    }
+    public function faq205()
+    {
+        return view('top.faq.faq205');
+    }
+    public function faq206()
+    {
+        return view('top.faq.faq206');
+    }
+    public function faq207()
+    {
+        return view('top.faq.faq207');
+    }
+    public function faq208()
+    {
+        return view('top.faq.faq208');
+    }
+    public function faq209()
+    {
+        return view('top.faq.faq209');
+    }
+    public function faq210()
+    {
+        return view('top.faq.faq210');
+    }
+    public function faq211()
+    {
+        return view('top.faq.faq211');
+    }
+    public function faq212()
+    {
+        return view('top.faq.faq212');
+    }
+    public function faq213()
+    {
+        return view('top.faq.faq213');
+    }
+    public function faq214()
+    {
+        return view('top.faq.faq214');
+    }
+    public function faq215()
+    {
+        return view('top.faq.faq215');
+    }
+    public function faq216()
+    {
+        return view('top.faq.faq216');
+    }
+    public function faq217()
+    {
+        return view('top.faq.faq217');
+    }
+    public function faq218()
+    {
+        return view('top.faq.faq218');
+    }
+    public function faq219()
+    {
+        return view('top.faq.faq219');
+    }
 
     public function whatis()
     {
