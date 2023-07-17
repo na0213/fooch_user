@@ -45,12 +45,12 @@
                 <span class="underlined-text orange">FOOCHの思い</span>
               </h2>
               <div class="flex flex-row items-start md:w-4/5">
-                  <p class="content ml-2 w-3/5 md:w-3/4 ml-10 text-sm sm:text-base">「食物アレルギーがある人」<br>
+                  <p class="content ml-2 w-3/5 md:w-3/5 ml-10 text-sm sm:text-base">「食物アレルギーがある人」<br>
                     「グルテンフリー生活をする人」<br>
                     「添加物を気にする人」<br>
                     体質、生き方、好き嫌い、<br>
                     100人いれば100通りの食生活があり、食の多様化が進んでいます。</p>
-                  <img class="w-2/5 md:w-1/4 object-contain md:self-center" src="../../../images/welcome.jpg" alt="image description">
+                  <img class="w-2/5 md:w-2/5 object-contain md:self-center" src="../../../images/welcome.jpg" alt="image description">
               </div>
             </div>
 
