@@ -57,7 +57,10 @@ class TopController extends Controller
             $imagearray[] = $image;
         }
 
-        $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+        $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
+        $maxPurchaseQuantity = $product->max_purchase_quantity;
+        // 在庫数とmax_purchase_quantityの小さい方を選択肢として表示する
+        $quantity = min($stockQuantity, $maxPurchaseQuantity);
 
         if($quantity > 9){
             $quantity = 9;
@@ -89,6 +92,7 @@ class TopController extends Controller
     public function sendOwnerContact(Request $request)
     {
         $data = $request->validate([
+            'terms' => ['required', 'accepted'],
             'name' => 'required|max:255',
             'email' => 'required|email',
             'body' => 'required',
@@ -105,7 +109,8 @@ class TopController extends Controller
         Mail::send('emails.confirmation', $data, function ($message) use ($data) {
             $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
             $message->to($data['email'], $data['name']);
-            $message->subject('出店希望の確認: '.$data['name']);
+            $message->subject('出店希望を受け付けました');
+            // $message->subject('出店希望の確認: '.$data['name']);
         });
 
         return redirect()->route('top.owner_contact')

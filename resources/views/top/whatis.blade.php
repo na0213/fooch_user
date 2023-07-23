@@ -42,7 +42,7 @@
 
             <div class="container mx-auto px-5 py-2 md:flex md:flex-row">
               <h2 class="mb-4 mr-2 w-full md:w-1/5 text-2xl">
-                <span class="underlined-text orange">FOOCHの思い</span>
+                <span class="underline decoration-lyellow">FOOCHの思い</span>
               </h2>
               <div class="flex flex-row items-start md:w-4/5">
                   <p class="content ml-2 w-3/5 md:w-3/5 ml-10 text-sm sm:text-base">「食物アレルギーがある人」<br>
@@ -68,7 +68,7 @@
 
             <div class="container md:mb-10 mx-auto flex flex-col md:flex-row px-5 py-5">
               <h2 class="mb-4 mr-2 w-full md:w-1/3 text-2xl">
-                <span class="underlined-text orange">食べたいものを原材料から選んでみよう</span>
+                <span class="underline decoration-lyellow">食べたいものを原材料から選んでみよう</span>
               </h2>
               <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">キーワードやカテゴリーでは探したい商品を入力・選択できます。<br>
                 さらに、商品に含まれてほしくない原材料を選択する機能がついています。<br>

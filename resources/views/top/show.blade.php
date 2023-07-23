@@ -79,7 +79,7 @@
                                 </a>
                             </div>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">原材料名</p>
-                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{{ $product->ingredients }}</p>
+                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{!! nl2br(e($product->ingredients)) !!}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">添加物</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{{ $product->additives }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">アレルギー表示対象品目</p>
@@ -87,7 +87,7 @@
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">賞味期限</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{{ $product->expiration }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">商品紹介</p>
-                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{{ $product->info }}</p>
+                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-3">{!! nl2br(e($product->info)) !!}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">送料</p>
                             @if ($product->shipping_patterns_id === 0)
                             <p>送料込み</p>
