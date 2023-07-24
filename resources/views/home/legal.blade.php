@@ -14,10 +14,10 @@
         <p class="test leading-relaxed indent-text">FOOCH</p><br><br>
         
         <p class="test leading-relaxed font-semibold">販売事業者名</p><br>
-        <p class="test leading-relaxed indent-text">石崎奈都美</p><br><br>
+        <p class="test leading-relaxed indent-text">石﨑奈都美</p><br><br>
         
         <p class="test leading-relaxed font-semibold">代表者名</p><br>
-        <p class="test leading-relaxed indent-text">石崎奈都美</p><br><br>
+        <p class="test leading-relaxed indent-text">石﨑奈都美</p><br><br>
         
         <p class="test leading-relaxed font-semibold">屋号</p><br>
         <p class="test leading-relaxed indent-text">英語：FOOCH</p><br>

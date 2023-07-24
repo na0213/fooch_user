@@ -551,6 +551,8 @@ video {
   margin-bottom: 1.25rem;
 }.mb-6 {
   margin-bottom: 1.5rem;
+}.mb-8 {
+  margin-bottom: 2rem;
 }.ml-1 {
   margin-left: 0.25rem;
 }.ml-10 {
@@ -593,8 +595,6 @@ video {
   margin-top: 1.5rem;
 }.mt-8 {
   margin-top: 2rem;
-}.mb-8 {
-  margin-bottom: 2rem;
 }.mt-auto {
   margin-top: auto;
 }.block {
@@ -659,12 +659,12 @@ video {
   max-width: 72rem;
 }.max-w-7xl {
   max-width: 80rem;
-}.max-w-xl {
-  max-width: 36rem;
 }.max-w-md {
   max-width: 28rem;
 }.max-w-screen-2xl {
   max-width: 1536px;
+}.max-w-xl {
+  max-width: 36rem;
 }.flex-1 {
   flex: 1 1 0%;
 }.flex-shrink {
@@ -1073,17 +1073,12 @@ video {
 }.text-yellow-700 {
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
-}.text-red-400 {
-  --tw-text-opacity: 1;
-  color: rgb(248 113 113 / var(--tw-text-opacity));
 }.underline {
   text-decoration-line: underline;
-}.decoration-mimosa {
-  text-decoration-color: #FFF462;
-}.decoration-gray-100 {
-  text-decoration-color: #f3f4f6;
 }.decoration-lyellow {
   text-decoration-color: #FFF67F;
+}.decoration-mimosa {
+  text-decoration-color: #FFF462;
 }.decoration-solid {
   text-decoration-style: solid;
 }.antialiased {
@@ -1356,10 +1351,10 @@ video {
     display: none;
   }.sm\:h-auto {
     height: auto;
-  }.sm\:w-full {
-    width: 100%;
   }.sm\:w-1\/2 {
     width: 50%;
+  }.sm\:w-full {
+    width: 100%;
   }.sm\:max-w-2xl {
     max-width: 42rem;
   }.sm\:max-w-lg {
@@ -1451,35 +1446,35 @@ video {
   }.md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }.md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }.md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }.md\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }.md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }@media (min-width: 1024px) {.lg\:mt-0 {
     margin-top: 0px;
   }.lg\:w-1\/2 {
     width: 50%;
-  }.lg\:w-full {
-    width: 100%;
   }.lg\:w-2\/5 {
     width: 40%;
   }.lg\:w-3\/5 {
     width: 60%;
+  }.lg\:w-full {
+    width: 100%;
   }.lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
-  }.lg\:py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }.lg\:py-12 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }.lg\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }.lg\:pl-10 {
     padding-left: 2.5rem;
   }.lg\:text-4xl {

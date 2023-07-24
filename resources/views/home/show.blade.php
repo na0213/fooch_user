@@ -95,7 +95,7 @@
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">内容量</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->content_volume}}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">原材料名</p>
-                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->ingredients }}</p>
+                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{!! nl2br(e($product->ingredients)) !!}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">添加物</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->additives }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">アレルギー表示対象品目</p>
