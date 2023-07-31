@@ -154,7 +154,8 @@
                   <div>
                     <label for="terms" class="inline-flex items-center">
                       <input id="terms" type="checkbox" name="terms" required>
-                      <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-yellow-500">{{ __('利用規約に同意しました') }}</a></span>
+                      {{-- <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-yellow-500">{{ __('利用規約に同意しました') }}</a></span> --}}
+                      <span class="ml-2"><a href="{{ route('welcome') }}" target="_blank" class="underline hover:text-yellow-500">{{ __('利用規約に同意しました') }}</a></span>
                     </label>
                   </div>
                 </div>
