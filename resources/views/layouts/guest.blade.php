@@ -68,8 +68,7 @@
             <div>
                 <ul class="text-black-500 dark:text-black-600">
                     <li class="mb-4">
-                        {{-- <x-nav-link :href="route('terms')" :active="request()->routeIs('terms')"> --}}
-                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                        <x-nav-link :href="route('terms')" :active="request()->routeIs('terms')">
                             {{ __('利用規約') }}
                         </x-nav-link>
                     </li>
@@ -79,8 +78,7 @@
                         </x-nav-link>
                     </li>
                     <li class="mb-4">
-                        {{-- <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')"> --}}
-                        <x-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                        <x-nav-link :href="route('privacy')" :active="request()->routeIs('privacy')">
                             {{ __('プライバシーポリシー') }}
                         </x-nav-link>
                     </li>

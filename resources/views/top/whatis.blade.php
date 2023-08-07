@@ -56,7 +56,7 @@
 
             <div class="container md:mb-10 mx-auto px-5 py-2 md:flex md:flex-row">
               <div class="flex flex-row items-start md:w-4/5">
-                <img class="w-1/3 md:w-2/5 object-contain" src="../../../images/welcome2.jpg" alt="image description">
+                <img class="w-1/3 md:w-2/5 object-contain" src="../../../images/welcome4.jpg" alt="image description">
                 <p class="content mb-4 ml-2 w-full md:w-3/5 ml-10 text-sm sm:text-base">ネットで簡単に食品を購入できるようになった今、
                   なかなか目的の商品に辿り着けないことが増えてきました。<br>
                   私もそのような悩みを抱えていた一人です。<br><br>

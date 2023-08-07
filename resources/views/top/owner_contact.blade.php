@@ -60,7 +60,7 @@
             <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl"></h2>
             <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">きっかけは私自身がなかなか目的の商品に辿り着けなかったことでした。<br><br>
               「ネットで簡単に検索できる時代なのになぜだろう？」<br>
-              「商品が見つけやすくなることは、作り手からも見つけてもらいやすくなるきっかけになるのではないか？」<br><br>
+              「お店としても、商品が見つけてもらいやすくなれば、より多くの方にお店を知ってもらうきっかけにもなるのではないか？」<br><br>
               FOOCH（フーチ）はそこから始まりました。<br>
             </p>
           </div>
@@ -94,8 +94,8 @@
           </div>
           <div class="container mt-4 mx-auto flex flex-col md:flex-row px-5 relative">
             <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl"></h2>
-            <p class="content mb-5 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">以上の結果から、食品表示は半数以上の方が見ていることがわかりました。<br>
-              その理由としては、「避けたいものがある」ことを理由としている方が半数以上いることもわかりました。<br>
+            <p class="content mb-5 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">以上の結果から、<span class="text-lred font-semibold">食品表示は6割以上の方が見ている</span>ことがわかりました。<br>
+              その理由としては、<span class="text-lred font-semibold">「避けたいものがある」ことを理由としている方が半数以上いる</span>こともわかりました。<br>
             </p>
           </div>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-5">

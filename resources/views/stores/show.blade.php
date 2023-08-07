@@ -15,7 +15,7 @@
     
                   @if($store->status === 'using' || $store->status === 'draft')
                   <div class="mt-auto">
-                    <a href="{{ route('top.specificBusinessTransaction', $store) }}" class="max-w-md text-gray-600 underline">特定商取引法に基づく表記</a>
+                    <a href="{{ route('store.specificBusinessTransaction', $store) }}" class="max-w-md text-gray-600 underline">特定商取引法に基づく表記</a>
                   </div>
                   @endif
                 </div>

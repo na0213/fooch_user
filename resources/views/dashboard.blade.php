@@ -37,7 +37,20 @@
         }
         }
     </style>
-    <div class="relative lg:w-full w-full flex items-center justify-center text-center">
+        <div class="relative lg:w-full w-full flex items-center justify-center text-center">
+            <img src="../../images/foochtop.jpg" alt="fooch" class="w-full">
+    
+            <div class="absolute right-0 w-3/5 md:w-1/2 flex flex-col justify-center items-start text-left p-5 bg-semi-transparent-yellow">
+                <h1 class="text-start font-bold">原<span class="title-font">材料から始まる食のstory</h1>
+                <p class="text-sm sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">体質、生き方、好き嫌い、</p>
+                <p class="text-sm sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-2">100人いれば100通りの食生活-story-がある</p>
+                <p class="text-sm sm:text-base font-medium leading-relaxed text-gray-700 sm:mb-4">食べたいものを原材料から選んでみよう</p>
+                <a href="{{ route('home.whatis') }}" class="w-full relative block">
+                <p class="text-sm sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
+                </a>
+            </div>
+        </div>
+    {{-- <div class="relative lg:w-full w-full flex items-center justify-center text-center">
         <img src="../../images/foochtop.jpg" alt="fooch" class="w-full">
 
         <div class="absolute right-0 w-1/2 flex flex-col justify-center items-start text-left p-5 bg-semi-transparent-yellow">
@@ -49,7 +62,7 @@
             <p class="text-xs sm:text-base font-bold leading-relaxed text-gray-700 underline decoration-solid hover:text-yellow-500">▷show more</p>
             </a>
         </div>
-    </div>
+    </div> --}}
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <section class="text-gray-600 body-font">

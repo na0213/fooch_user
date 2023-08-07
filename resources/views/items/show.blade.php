@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            {{ Breadcrumbs::render('items.show', $category, $product) }}
+            {{-- {{ Breadcrumbs::render('items.show', $category, $product) }} --}}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <section class="text-gray-600 body-font overflow-hidden">
                     <div class="container px-3 py-10 mx-auto">
@@ -92,18 +92,24 @@
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->content_volume}}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">原材料名</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->ingredients }}</p>
+                            @if(!empty($product->additives ))
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">添加物</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->additives }}</p>
+                            @endif
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">アレルギー表示対象品目</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->allergy }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">賞味期限</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->expiration }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">保存方法</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->storage_method }}</p>
+                            @if(!empty($product->origin))
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">主な原産地</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->origin}}</p>
+                            @endif
+                            @if(!empty($product->nutrition_facts))
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">栄養成分</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->nutrition_facts}}</p>
+                            @endif
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">商品紹介</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{!! nl2br(e($product->info)) !!}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">送料</p>
