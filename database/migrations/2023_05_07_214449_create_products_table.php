@@ -30,12 +30,13 @@ return new class extends Migration
             $table->text('storage_method');//保存方法
             $table->unsignedInteger('price');
             $table->text('expiration'); //賞味期限
+            $table->text('delivery_date');//配送日目安
             $table->text('additives')->nullable(); //添加物
             $table->text('allergy')->nullable();
             $table->text('origin')->nullable(); //原産地
             $table->text('nutrition_facts')->nullable(); //栄養成分
-            $table->text('info')->nullable();
-            $table->integer('max_purchase_quantity')->default(1);
+            $table->text('info');
+            $table->integer('max_purchase_quantity')->nullable()->default(null);
             $table->string('status')->nullable()->default(null);
             $table->datetime('created_at');
             $table->datetime('updated_at');

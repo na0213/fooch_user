@@ -120,8 +120,51 @@ class CartController extends Controller
     // カート追加
     public function add(Request $request)
     {
-        // dd($request);
-        // $userinfos = User::findOrFail(Auth::id());
+        $productId = $request->product_id;
+        $addingQuantity = (int) $request->quantity;
+    
+        // 在庫と最大購入可能数を取得
+$stockQuantity = Stock::where('product_id', $productId)->sum('quantity');
+$maxPurchaseQuantity = Product::where('id', $productId)->value('max_purchase_quantity');
+
+// カート内の該当商品の数量を取得
+$currentCartQuantity = Cart::where('product_id', $productId)
+    ->where('user_id', Auth::id())->sum('quantity');
+
+// 合計数量を計算
+$totalQuantity = $currentCartQuantity + $addingQuantity;
+
+// 制約チェック
+if ($maxPurchaseQuantity !== null) {
+    // 在庫と最大購入数の低い方を制限として使用する
+    $limit = min($stockQuantity, $maxPurchaseQuantity);
+    if ($totalQuantity > $limit) {
+        return redirect()->back()->with(['message' => '購入限度数を超えています', 'status' => 'alert']);
+    }
+} else {
+    // 最大購入数がnullの場合、在庫数のみを制限として使用する
+    if ($totalQuantity > $stockQuantity) {
+        return redirect()->back()->with(['message' => '購入限度数を超えています', 'status' => 'alert']);
+    }
+}
+
+        // 在庫と最大購入可能数を取得
+        // $stockQuantity = Stock::where('product_id', $productId)->sum('quantity');
+        // $maxPurchaseQuantity = Product::where('id', $productId)->value('max_purchase_quantity');
+    
+        // // カート内の該当商品の数量を取得
+        // $currentCartQuantity = Cart::where('product_id', $productId)
+        //     ->where('user_id', Auth::id())->sum('quantity');
+    
+        // // 合計数量を計算
+        // $totalQuantity = $currentCartQuantity + $addingQuantity;
+    
+        // // 制約チェック
+        // if ($totalQuantity > $stockQuantity || $totalQuantity > $maxPurchaseQuantity) {
+        //     return redirect()->back()->with(['message' => '購入限度数を超えています',
+        //     'status' => 'alert']);
+        // }
+
         $itemInCart = Cart::where('product_id', $request->product_id)
         ->where('user_id', Auth::id())->first();
 
@@ -135,7 +178,6 @@ class CartController extends Controller
                 'quantity' => $request->quantity
             ]);
         }
-        // dd('test');
         return redirect()->route('cart.index');
     }
 
@@ -170,40 +212,73 @@ class CartController extends Controller
     public function checkout(Request $request)
 {
     $user = User::findOrFail(Auth::id());
-    $prefecture = $user->prefecture;// ユーザーの都道府県情報を取得
+    $prefecture = $user->prefecture;
     $cartItems = Cart::where('user_id', Auth::id())->get();
 
     $lineItems = [];
     $totalPrice = 0;
     $shippingFeeTotal = 0;
 
+    // Stripeのセッション作成の試行
+    try {
+        foreach ($cartItems as $cartItem) {
+            $product = Product::findOrFail($cartItem->product_id);
+            $quantity = $cartItem->quantity;
+
+            // 在庫確認
+            $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
+            if ($quantity > $stockQuantity) {
+                return view('cart.index');
+            }
+
+            // 商品の合計金額を計算
+            $productPrice = $product->price * $quantity;
+
+            // 商品の送料を計算
+            $shippingPattern = $product->shipping_patterns_id ? ShippingPattern::findOrFail($product->shipping_patterns_id) : null;
+            $shippingFee = $shippingPattern ? $shippingPattern->calculateShippingFee($prefecture) : 0;
+            $shippingFeeTotal += $shippingFee;
+
+            $lineItems[] = [
+                'name' => $product->name,
+                'description' => $product->info,
+                'amount' => $product->price,
+                'currency' => 'jpy',
+                'quantity' => $quantity,
+            ];
+        }
+
+        // 追加: 送料を lineItems に追加
+        if ($shippingFeeTotal > 0) {
+            $lineItems[] = [
+                'name' => '送料',
+                'description' => '送料',
+                'amount' => $shippingFeeTotal,
+                'currency' => 'jpy',
+                'quantity' => 1,
+            ];
+        }
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => [$lineItems],
+            'mode' => 'payment',
+            'success_url' => route('cart.success') . '?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('cart.cancel'),
+        ]);
+
+    } catch (\Exception $e) {
+        // エラーハンドリング（例：ログの記録、エラーメッセージの表示等）
+        \Log::error('Stripe決済エラー: ' . $e->getMessage());
+        return redirect()->back()->with('error', '決済処理中にエラーが発生しました。');
+    }
+
+    // ここで在庫を減らす
     foreach ($cartItems as $cartItem) {
         $product = Product::findOrFail($cartItem->product_id);
         $quantity = $cartItem->quantity;
 
-        // 在庫確認
-        $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
-        if ($quantity > $stockQuantity) {
-            return view('user.cart');
-        }
-
-        // 商品の合計金額を計算
-        $productPrice = $product->price * $quantity;
-
-        // 商品の送料を計算
-        $shippingPattern = $product->shipping_patterns_id ? ShippingPattern::findOrFail($product->shipping_patterns_id) : null;
-        $shippingFee = $shippingPattern ? $shippingPattern->calculateShippingFee($prefecture) : 0;
-        $shippingFeeTotal += $shippingFee;
-
-        $lineItems[] = [
-            'name' => $product->name,
-            'description' => $product->info,
-            'amount' => $product->price,
-            'currency' => 'jpy',
-            'quantity' => $quantity,
-        ];
-
-        // 在庫を減らす
         Stock::create([
             'product_id' => $product->id,
             'type' => \Constant::PRODUCT_LIST['reduce'],
@@ -211,30 +286,81 @@ class CartController extends Controller
         ]);
     }
 
-    // 追加: 送料を lineItems に追加
-    if ($shippingFeeTotal > 0) {
-        $lineItems[] = [
-            'name' => '送料',
-            'description' => '送料',
-            'amount' => $shippingFeeTotal,
-            'currency' => 'jpy',
-            'quantity' => 1,
-        ];
-    }
-
-    \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
-    $session = \Stripe\Checkout\Session::create([
-        'payment_method_types' => ['card'],
-        'line_items' => [$lineItems],
-        'mode' => 'payment',
-        'success_url' => route('cart.success') . '?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => route('cart.cancel'),
-    ]);
-
     $publicKey = env('STRIPE_PUBLIC_KEY');
 
     return view('cart.checkout', compact('session', 'publicKey'));
 }
+
+//     public function checkout(Request $request)
+// {
+//     $user = User::findOrFail(Auth::id());
+//     $prefecture = $user->prefecture;// ユーザーの都道府県情報を取得
+//     $cartItems = Cart::where('user_id', Auth::id())->get();
+
+//     $lineItems = [];
+//     $totalPrice = 0;
+//     $shippingFeeTotal = 0;
+
+
+//     foreach ($cartItems as $cartItem) {
+//         $product = Product::findOrFail($cartItem->product_id);
+//         $quantity = $cartItem->quantity;
+
+//         // 在庫確認
+//         $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
+//         if ($quantity > $stockQuantity) {
+//             return view('cart.index');
+//             // return view('user.cart');
+//         }
+
+//         // 商品の合計金額を計算
+//         $productPrice = $product->price * $quantity;
+
+//         // 商品の送料を計算
+//         $shippingPattern = $product->shipping_patterns_id ? ShippingPattern::findOrFail($product->shipping_patterns_id) : null;
+//         $shippingFee = $shippingPattern ? $shippingPattern->calculateShippingFee($prefecture) : 0;
+//         $shippingFeeTotal += $shippingFee;
+
+//         $lineItems[] = [
+//             'name' => $product->name,
+//             'description' => $product->info,
+//             'amount' => $product->price,
+//             'currency' => 'jpy',
+//             'quantity' => $quantity,
+//         ];
+
+//         // 在庫を減らす
+//         Stock::create([
+//             'product_id' => $product->id,
+//             'type' => \Constant::PRODUCT_LIST['reduce'],
+//             'quantity' => $quantity * -1
+//         ]);
+//     }
+
+//     // 追加: 送料を lineItems に追加
+//     if ($shippingFeeTotal > 0) {
+//         $lineItems[] = [
+//             'name' => '送料',
+//             'description' => '送料',
+//             'amount' => $shippingFeeTotal,
+//             'currency' => 'jpy',
+//             'quantity' => 1,
+//         ];
+//     }
+
+//     \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+//     $session = \Stripe\Checkout\Session::create([
+//         'payment_method_types' => ['card'],
+//         'line_items' => [$lineItems],
+//         'mode' => 'payment',
+//         'success_url' => route('cart.success') . '?session_id={CHECKOUT_SESSION_ID}',
+//         'cancel_url' => route('cart.cancel'),
+//     ]);
+
+//     $publicKey = env('STRIPE_PUBLIC_KEY');
+
+//     return view('cart.checkout', compact('session', 'publicKey'));
+// }
 
 public function success(Request $request)
 {

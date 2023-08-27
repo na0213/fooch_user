@@ -77,8 +77,13 @@ class ItemController extends Controller
 
         $stockQuantity = Stock::where('product_id', $product->id)->sum('quantity');
         $maxPurchaseQuantity = $product->max_purchase_quantity;
-        // 在庫数とmax_purchase_quantityの小さい方を選択肢として表示する
-        $quantity = min($stockQuantity, $maxPurchaseQuantity);
+
+        // max_purchase_quantityがnullの場合、stockQuantityを使用する
+        if (is_null($maxPurchaseQuantity)) {
+            $quantity = $stockQuantity;
+        } else {
+            $quantity = min($stockQuantity, $maxPurchaseQuantity);
+        }
 
         if($quantity > 9){
             $quantity = 9;

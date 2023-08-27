@@ -21,13 +21,48 @@
                 </div>
             </div>
         </div>
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200">
+                <div class="flex flex-wrap">
+                    @foreach ($products as $product)
+                    <div class="w-1/4 p-2 md:p-4">
+                        @if($product->getStockQuantity() > 0)
+                        <a href="{{ route('items.show', ['item' => $product->id ]) }}">
+                        @endif
+                            <div class="mt-4">
+                                @if($product->image !=='')
+                                <img src="{{ config('aws.S3.url').'/'.$product->image }}" alt="..." class="img-thumbnail">
+                                @else
+                                <img src="../../images/noimage.jpg" alt="..." class="img-thumbnail">
+                                @endif
+                                <h3 class="text-gray-500 text-xs tracking-widest mb-1">{{ $product->store_name }}</h3> 
+                                @foreach($categories as $index => $category_name)
+                                @if($index === $product->category_id)
+                                <h3 class="text-gray-500 text-xs tracking-widest mb-1">{{ $category_name }}</h3> 
+                                @endif
+                                @endforeach
+                                <h2 class="text-gray-900 text-sm sm:text-base font-medium">{{ $product->name }}</h2>
+                                <p class="mt-1">{{ number_format($product->price) }}<span class="text-sm text-gray-700">円(税込)</span></p>
+                                <!-- 在庫チェック -->
+                                @if($product->getStockQuantity() == 0)
+                                <p class="text-red-500">SOLD OUT</p>
+                                @endif
+                            </div>
+                        @if($product->getStockQuantity() > 0)
+                        </a>
+                        @endif
+                    </div>
+                    @endforeach                    
+                </div>
+            </div>
+        </div>
     </div>
 
 
 
 
 <div class="p-4 w-full flex justify-around mt-4">
-    <button type="button" onclick="window.history.back()" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 rounded text-lg">戻る</button>
+    <button type="button" onclick="window.history.back()" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-gray-400 text-lg">戻る</button>
 </div>
 
 </x-app-layout>

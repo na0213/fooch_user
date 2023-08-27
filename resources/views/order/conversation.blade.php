@@ -14,7 +14,7 @@
     <h1 class="text-start">M<span class="title-font">ESSAGE</h1>
       <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
         <p class="font-bold">【配達完了】になるとメッセージ画面は見れなくなります。</p>
-        <p>発送遅延や予測外のトラブルが起こった場合などにご利用ください。</p>
+        <p>配送確認や商品不備等があった際にご利用ください。</p>
       </div>
       <div class="flex flex-col space-y-4">
         @foreach ($messages as $message)

@@ -31,10 +31,10 @@
 <div class="container mx-auto my-2 px-4">
     <div class="flex py-8 px-6 md:flex">
       <div class="w-1/2">
-        <button id="userButton" class="bg-gray-200 border-0 py-2 px-8 focus:outline-none hover:bg-lyellow text-xs md:text-base">購入者様向け</button>
+        <button id="userButton" class="bg-lyellow border-0 py-2 px-8 focus:outline-none hover:bg-lyellow text-xs md:text-base">購入者様向け</button>
       </div>
     </div>
-    <div id="userFaq" style="display: none;" class="container mx-auto my-4 py-4 px-4 border">
+    <div id="userFaq" class="container mx-auto my-4 py-4 px-4 border">
         <p class="pt-2 leading-relaxed font-semibold text-sm md:text-base">決済について</p><br>
             <div class="w-full text-sm md:text-base text-gray-700 py-1 px-3 leading-8">
                 <a href="{{ route('home.faq.faq100') }}">支払い方法はクレジットカードのみですか？</a>

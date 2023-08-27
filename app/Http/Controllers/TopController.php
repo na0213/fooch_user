@@ -69,10 +69,23 @@ class TopController extends Controller
         return view('top.show', compact('product','categories','quantity','product_images', 'imagearray','exclusions'));
     }
 
-    public function store(Store $store)
+    public function store(Request $request, Store $store)
     {
-        return view('top.store', compact('store'));
-    }
+        $categories = config('category');
+        $exclusions = config('exclusion');
+        $products = Product::availableItems($request->exclusion_id)
+            ->selectCategory($request->category ?? '0')
+            ->searchKeyword($request->keyword)
+            ->sortOrder($request->sort)
+            ->where('product_stores.id', $store->id) // この条件を追加
+            ->paginate(20);
+    
+        return view('top.store', compact('store', 'products','categories','exclusions'));
+    }  
+    // public function store(Store $store)
+    // {
+    //     return view('top.store', compact('store'));
+    // }
 
     public function specificBusinessTransaction(Store $store)
     {

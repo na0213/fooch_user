@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('tel');
             $table->string('contact')->nullable();
-            $table->string('business_days')->nullable(); //営業日
+            $table->text('business_days')->nullable(); //営業日
             $table->string('sale_price')->default('各商品詳細ページに記載された金額(税込)'); //販売価格
             $table->string('shipping_cost')->default('各商品詳細ページに記載された金額(税込)'); //送料
             $table->string('delivery')->nullable(); //配送

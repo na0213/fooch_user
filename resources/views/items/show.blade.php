@@ -6,6 +6,7 @@
                 <section class="text-gray-600 body-font overflow-hidden">
                     <div class="container px-3 py-10 mx-auto">
                         <div class="container text-justify">
+                            <x-flash-message status="session('status')" />
                             <h1 class="text-gray-900 text-2xl title-font font-medium">{{ $product->name }}</h1>
                             @foreach($categories as $index => $category_name)
                             @if($index === $product->category_id)
@@ -78,6 +79,27 @@
                                       <img src="../../images/noimage.jpg" alt="..." class="hidden">
                                       @endif
                                     </li>
+                                    <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[3]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[3] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[3] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
+                                      <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[4]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[4] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[4] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
+                                      <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[5]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[5] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[5] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
                                   </ul>
                                 </div>
                             </section>
@@ -110,6 +132,8 @@
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">栄養成分</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->nutrition_facts}}</p>
                             @endif
+                            <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">配送日目安</p>
+                            <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{{ $product->delivery_date }}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">商品紹介</p>
                             <p class="leading-relaxed text-sm text-gray-900 pl-3 border-l-2 border-gray-200 mb-5">{!! nl2br(e($product->info)) !!}</p>
                             <p class="leading-relaxed font-bold text-sm text-gray-900 mb-1">送料</p>
