@@ -52,8 +52,8 @@ h1 {
                         </div>
                         <div class="d-flex justify-content-start">
                             <div class="mb-5 mr-5 ml-5">
-                                <input name="keyword" placeholder="キーワード" value="{{ old('keyword', \Request::get('keyword')) }}">
-                                <select name="category">
+                                <input name="keyword" placeholder="キーワード" value="{{ old('keyword', \Request::get('keyword')) }}" class="w-2/5 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                <select name="category" class="2/5 mt-2 mb-10 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     <option value="0" @if(old('category', \Request::get('category')) === '0') selected @endif>全て</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" @if(old('category', \Request::get('category')) == $category->id) selected @endif>{{ $category->name }}</option>
@@ -62,22 +62,8 @@ h1 {
                                 <button class="bg-lyellow border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500">検索</button>
                             </div>
                         </div>
-                        
-                        {{-- <div class="d-flex justify-content-start">
-                            <div class="mb-5 mr-5 ml-5">
-                                <input name="keyword" placeholder="キーワード" value="{{ old('keyword', \Request::get('keyword')) }}" class="w-2/5 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                <select name="category" class="2/5 mt-2 mb-10 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                    <option value="0" @if(old('category', \Request::get('category')) === '0') selected @endif>全て</option>
-                                    @foreach($categories as $index => $name)
-                                    <option value="{{ $index }}" @if(old('category', \Request::get('category')) == $index) selected @endif>{{ $name }}</option>
-                                    @endforeach
-                                </select>
-                                <button class="bg-lyellow border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500">検索</button>
-                            </div>
-                        </div> --}}
-                        <p class="text-xs sm:text-base mr-5 ml-4 mb-2 font-bold leading-relaxed text-gray-700 underline decoration-solid">▽and more</p>
-                        <p class="text-xs md:text-base mr-5 ml-4">除外したい原材料がある場合はチェックして検索してください</p>
-                        <p class="text-red-600 text-sm md:text-sm mt-5 ml-5">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
+                        <p class="text-xs md:text-base mr-5 ml-4">▼除外したい原材料がある場合はチェックして検索してください▼</p>
+                        <p class="text-red-600 text-sm md:text-sm mt-2 ml-5">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
                         <div>
                             <option value="" @if(\Request::get('exclusion') === '') selected @endif></option>
                             <p class="mb-2 p-2 leading-7 text-base text-gray-600">◆アレルギー項目</p>

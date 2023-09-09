@@ -101,7 +101,7 @@
                         </div>
                     </div> --}}
                     {{-- <p class="text-sm sm:text-base mr-5 ml-4 mb-2 font-bold leading-relaxed text-gray-700 underline decoration-solid">▽and more</p> --}}
-                    <p class="text-sm md:text-base mr-5 ml-4">除外したい原材料がある場合はチェックして検索してください</p>
+                    <p class="text-sm md:text-base mr-5 ml-4">▼除外したい原材料がある場合はチェックして検索してください▼</p>
                     <p class="text-red-600 text-sm md:text-sm mt-2 ml-5">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
                     <div>
                         <option value="" @if(\Request::get('exclusion') === '') selected @endif></option>
