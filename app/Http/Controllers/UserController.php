@@ -193,7 +193,7 @@ class UserController extends Controller
         $user = User::find($id);
         if ($user->carts->count() > 0 || $user->orders->where('order_status', '!=', 'completed')->count() > 0) {
             return redirect()->route('user.index')->with([
-                'message' => 'カートに商品が残っているか、配送完了していない商品があります。',
+                'message' => 'カートに商品が残っているか、配送が完了していない商品があります。',
                 'status' => 'alert',
             ]);
         }

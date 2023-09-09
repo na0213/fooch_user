@@ -7,6 +7,9 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Stock;
 use App\Models\Store;
+use App\Models\Category;
+use App\Models\Exclusion;
+
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Pagination\Paginator;
 
@@ -15,9 +18,9 @@ class TopController extends Controller
     public function welcome(Request $request)
     {
         // SendThanksMail::dispatch();
-
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
@@ -29,8 +32,9 @@ class TopController extends Controller
 
     public function index(Request $request)
     {
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
@@ -43,8 +47,9 @@ class TopController extends Controller
     public function show($id)
     {
         $product = Product::findOrFail($id);
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
 
         $product_images = ProductImage::where('product_id', $id)
         ->orderBy('sort_num', 'asc')
@@ -71,8 +76,9 @@ class TopController extends Controller
 
     public function store(Request $request, Store $store)
     {
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
             ->selectCategory($request->category ?? '0')
             ->searchKeyword($request->keyword)
@@ -108,7 +114,8 @@ class TopController extends Controller
             'terms' => ['required', 'accepted'],
             'name' => 'required|max:255',
             'email' => 'required|email',
-            'body' => 'required',
+            'body' => 'nullable|string|max:500'
+            // 'body' => 'required',
         ]);
     
         // 管理者へのメール送信

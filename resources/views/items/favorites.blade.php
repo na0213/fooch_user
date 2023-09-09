@@ -27,9 +27,9 @@
                                     <img src="../../images/noimage.jpg" alt="..." class="img-thumbnail">
                                     @endif
                                     <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1" style="overflow-wrap: break-word;">{{ $product->store_name }}</div> 
-                                    @foreach($categories as $index => $category_name)
-                                    @if($index === $product->category_id)
-                                    <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1">{{ $category_name }}</div> 
+                                    @foreach($categories as $category)
+                                    @if($category->id === $product->category_id)
+                                    <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1">{{ $category->name }}</div> 
                                     @endif
                                     @endforeach
                                     <div class="text-black-700 text-sm sm:text-sm font-medium">{{ $product->name }}</div>

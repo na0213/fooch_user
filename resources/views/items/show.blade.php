@@ -8,9 +8,9 @@
                         <div class="container text-justify">
                             <x-flash-message status="session('status')" />
                             <h1 class="text-gray-900 text-2xl title-font font-medium">{{ $product->name }}</h1>
-                            @foreach($categories as $index => $category_name)
-                            @if($index === $product->category_id)
-                            <h3 class="text-sm title-font text-gray-500 tracking-widest mt-1"> {{ $category_name }}</h2>
+                            @foreach($categories as $category)
+                            @if($category->id === $product->category_id)
+                            <h3 class="text-sm title-font text-gray-500 tracking-widest mt-1"> {{ $category->name }}</h2>
                             @endif
                             @endforeach 
                         </div>

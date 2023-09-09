@@ -27,7 +27,7 @@
                         <!-- Name -->
                         <div class="p-2 w-2/2 mx-auto">
                             <div class="relative">
-                                <label for="name" class="leading-7 text-sm text-gray-600">名前</label>
+                                <label for="name" class="leading-7 text-sm text-gray-600">お名前</label>
                                 <input type="text" id="name" name="name" value="{{  old('name') }}" required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 @error('name')
                                  <span class="text-red-500">{{ $message }}</span>
@@ -46,7 +46,7 @@
                             <div class="relative">
                                 <label for="name" class="leading-7 text-sm text-gray-600">郵便番号（ハイフン不要）</label>
                                 <input type="text" id="zipcode" name="zipcode" maxlength="8" onKeyUp="AjaxZip3.zip2addr('zipcode','','prefecture','city');" value="{{ old('zipcode') }}" 
-                                required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="1030013"/>
+                                required class="w-full bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" placeholder="0000000"/>
                                 @error('zipcode')
                                     <span class="text-red-500">{{ $message }}</span>
                                 @enderror
@@ -150,7 +150,9 @@
                             </div>
                         </div>
                         <div class="mt-8 flex justify-center">
-                        <button type="submit" class="w-1/5 ml-1 bg-mimosa border-0 py-1 px-2 focus:outline-none hover:bg-yellow-600 text-lg">確認</button>
+                            <button type="submit" class="bg-mimosa border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 text-lg">確認</button>   
+
+                        {{-- <button type="submit" class="w-1/5 ml-1 bg-mimosa border-0 py-1 px-2 focus:outline-none hover:bg-yellow-600 text-lg">確認</button> --}}
                         </div>
                     </form>
 

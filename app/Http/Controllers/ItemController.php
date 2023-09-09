@@ -39,8 +39,9 @@ class ItemController extends Controller
 
     public function index(Request $request)
     {
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
@@ -59,10 +60,14 @@ class ItemController extends Controller
         $user = Auth::user(); // ログインユーザーを取得
         $user_prefecture = $user->prefecture; // ユーザーの都道府県を取得
         $product = Product::with('shipping_pattern')->findOrFail($id);
+            // すべてのカテゴリを取得
+        $categories = Category::all();
         // カテゴリーIDに対応するカテゴリー名を取得
-        $category = config('category')[$product->category_id];
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $category = Category::find($product->category_id)->name ?? null;
+        // カテゴリーIDに対応するカテゴリー名を取得
+        // $category = config('category')[$product->category_id];
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
 
         $product_images = ProductImage::where('product_id', $id)
         ->orderBy('sort_num', 'asc')
@@ -106,7 +111,7 @@ class ItemController extends Controller
     public function category($category)
     {
         $categories = config('category');
-        $exclusions = config('exclusion');
+        $exclusions = Exclusion::all(); 
 
         // 指定されたカテゴリーの商品を取得します
         $products = Product::where('category_id', $category)
@@ -124,8 +129,9 @@ class ItemController extends Controller
             })
             ->paginate($request->pagination ?? '20');
             
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         
         return view('items.favorites', compact('products', 'categories', 'exclusions'));
     }

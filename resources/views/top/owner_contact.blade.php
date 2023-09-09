@@ -49,7 +49,7 @@
       <div class="container mx-auto flex px-5 py-10 items-left justify-center flex-col">
         <h1 class="text-start">S<span class="title-font">TORE</h1>
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-5">
-            <h2 class="subtitle mb-4 mr-2 w-full underline decoration-lyellow md:w-1/3 text-2xl">こだわりの商品を<br>もっと知ってもらいたい</h2>
+            <h2 class="subtitle mb-4 mr-2 w-full underline decoration-lyellow md:w-1/3 text-2xl">こだわりの商品が<br>多くの方に届くように</h2>
             <p class="content ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">ご訪問ありがとうございます。<br>
               皆様の、思いを込めて作られた大切な商品が、<br>
               ECサイトが普及する時代に埋もれてしまうことがないように。<br>
@@ -60,7 +60,7 @@
             <h2 class="subtitle mb-4 w-full md:w-1/3 text-2xl"></h2>
             <p class="content mb-4 ml-2 w-full md:w-2/3 ml-10 text-sm sm:text-base">きっかけは私自身がなかなか目的の商品に辿り着けなかったことでした。<br><br>
               「ネットで簡単に検索できる時代なのになぜだろう？」<br>
-              「お店としても、商品が見つけてもらいやすくなれば、より多くの方にお店を知ってもらうきっかけにもなるのではないか？」<br><br>
+              「商品を見つけてもらいやすくなることは、より多くの方にお店を知ってもらうきっかけにもなるのではないか？」<br><br>
               FOOCH（フーチ）はそこから始まりました。<br>
             </p>
           </div>
@@ -132,20 +132,20 @@
           <div class="container mx-auto flex flex-col md:flex-row px-5 py-10">
             <form method="POST" action="{{ route('top.send_owner_contact') }}">
               @csrf
-              <label for="additives" class="leading-7 text-sm text-gray-600">お名前</label>
+              <label for="additives" class="leading-7 text-sm text-gray-600">お名前<span class="text-red-400">　※必須</span></label>
               <input type="text" name="name" value="{{ old('name') }}" required class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
               @if ($errors->has('name'))
               <p class="error-message">{{ $errors->first('name') }}</p>
               @endif
 
-              <label for="additives" class="leading-7 text-sm text-gray-600">メールアドレス</label>
+              <label for="additives" class="leading-7 text-sm text-gray-600">メールアドレス<span class="text-red-400">　※必須</span></label>
               <input type="text" name="email" value="{{ old('email') }}" required class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
               @if ($errors->has('email'))
               <p class="error-message">{{ $errors->first('email') }}</p>
               @endif
 
-              <label for="additives" class="leading-7 text-sm text-gray-600">お店のご紹介等</label>
-              <textarea name="body" rows="5" required class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ old('body') }}</textarea>
+              <label for="additives" class="leading-7 text-sm text-gray-600">商品のジャンル／ウェブサイト等<span class="text-gray-600">　※500文字以内</span></label>
+              <textarea name="body" rows="5" class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">{{ old('body') }}</textarea>
               @if ($errors->has('body'))
               <p class="error-message">{{ $errors->first('body') }}</p>
               @endif
@@ -154,8 +154,7 @@
                   <div>
                     <label for="terms" class="inline-flex items-center">
                       <input id="terms" type="checkbox" name="terms" required>
-                      {{-- <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-yellow-500">{{ __('利用規約に同意しました') }}</a></span> --}}
-                      <span class="ml-2"><a href="{{ route('welcome') }}" target="_blank" class="underline hover:text-yellow-500">{{ __('利用規約に同意しました') }}</a></span>
+                      <span class="ml-2"><a href="{{ route('terms') }}" target="_blank" class="underline hover:text-blue-500">{{ __('利用規約に同意しました') }}</a></span>
                     </label>
                   </div>
                 </div>

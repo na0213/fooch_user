@@ -54,9 +54,13 @@
                                 <input name="keyword" placeholder="キーワード" value="{{ old('keyword', \Request::get('keyword')) }}" class="w-2/5 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 <select name="category" class="2/5 mt-2 mb-10 bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                     <option value="0" @if(old('category', \Request::get('category')) === '0') selected @endif>全て</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" @if(old('category', \Request::get('category')) == $category->id) selected @endif>{{ $category->name }}</option>
+                                    @endforeach
+                                    {{-- <option value="0" @if(old('category', \Request::get('category')) === '0') selected @endif>全て</option>
                                     @foreach($categories as $index => $name)
                                     <option value="{{ $index }}" @if(old('category', \Request::get('category')) == $index) selected @endif>{{ $name }}</option>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
                                 <button class="bg-lyellow border-0 py-2 px-6 focus:outline-none hover:bg-yellow-500">検索</button>
                             </div>
@@ -66,24 +70,24 @@
                         <p class="text-red-600 text-xs md:text-sm mt-5 ml-5">※注：選択した原材料が全て除外できていない可能性もございます。<br>各商品の原材料は商品詳細画面にてご確認ください。</p>
                         <div>
                             <option value="" @if(\Request::get('exclusion') === '') selected @endif></option>
-                            <p class="mb-2 p-2 leading-7 text-base text-gray-600">◆アレルギー項目</p>
+                            {{-- <p class="mb-2 p-2 leading-7 text-base text-gray-600">◆アレルギー項目</p> --}}
                             <div class="exclusions" name="exclusion_id">
                                 
-                                @foreach($exclusions as $index => $name)
-                                    @if($name == '白砂糖')
-                                        </div>
-                                        <p class="mt-3 p-2 leading-7 text-base text-gray-600">◆その他</p>
-                                        <div class="exclusions" name="exclusion_id">
-                                    @endif
-                                    @if($name == '保存料')
-                                        </div>
-                                        <p class="mt-3 p-2 leading-7 text-base text-gray-600">◆添加物</p>
-                                        <div class="exclusions" name="exclusion_id">
-                                    @endif
-                                    <label class="my-checkbox ml-4">
-                                        <input id="checkbox{{ $index }}" type="checkbox" name="exclusion_id[]" value="{{ $index }}" @if(is_array(old('exclusion_id', \Request::get('exclusion_id'))) && in_array($index, old('exclusion_id', \Request::get('exclusion_id')))) checked @endif>{{ $name }}
-                                    </label>
-                                @endforeach 
+                            @foreach($exclusions as $exclusion)
+                                @if($exclusion->name == '白砂糖')
+                                    </div>
+                                    <p class="mt-3 p-2 leading-7 text-base text-gray-600"></p>
+                                    <div class="exclusions" name="exclusion_id">
+                                @endif
+                                @if($exclusion->name == '保存料')
+                                    </div>
+                                    <p class="mt-3 p-2 leading-7 text-base text-gray-600"></p>
+                                    <div class="exclusions" name="exclusion_id">
+                                @endif
+                                <label class="my-checkbox ml-4">
+                                    <input id="checkbox{{ $exclusion->id }}" type="checkbox" name="exclusion_id[]" value="{{ $exclusion->id }}" @if(is_array(old('exclusion_id', \Request::get('exclusion_id'))) && in_array($exclusion->id, old('exclusion_id', \Request::get('exclusion_id')))) checked @endif>{{ $exclusion->name }}
+                                </label>
+                            @endforeach 
                             </div>
                         </div>
                     </div>
@@ -93,6 +97,11 @@
     
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
+                        @if($products->count() == 0)
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4">
+                            <p class="font-bold">検索結果は0件です</p>
+                        </div>
+                        @else
                         <div class="flex flex-wrap">
                             @foreach ($products as $product)
                             <div class="w-1/4 p-2 md:p-4">
@@ -106,11 +115,16 @@
                                     <img src="../../images/noimage.jpg" alt="..." class="img-thumbnail">
                                     @endif
                                     <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1" style="overflow-wrap: break-word;">{{ $product->store_name }}</div> 
-                                    @foreach($categories as $index => $category_name)
+                                    @foreach($categories as $category)
+                                    @if($category->id === $product->category_id)
+                                    <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1">{{ $category->name }}</div> 
+                                    @endif
+                                    @endforeach
+                                    {{-- @foreach($categories as $index => $category_name)
                                     @if($index === $product->category_id)
                                     <div class="text-gray-500 text-xs sm:text-xs tracking-widest mb-1">{{ $category_name }}</div> 
                                     @endif
-                                    @endforeach
+                                    @endforeach --}}
                                     <div class="text-black-700 text-sm sm:text-sm font-medium">{{ $product->name }}</div>
                                     {{-- <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2> --}}
                                     <p class="mt-1">{{ number_format($product->price) }}<span class="text-sm text-gray-700">円(税込)</span></p>
@@ -128,6 +142,7 @@
                         <div class="mt-5">
                             {{ $products->links() }}
                         </div>
+                        @endif
                     </div>
                 </div>
             </form>

@@ -11,11 +11,16 @@
                     <div class="container px-3 py-10 mx-auto">
                         <div class="container text-justify">
                             <h1 class="text-gray-900 text-2xl title-font font-medium">{{ $product->name }}</h1>
-                            @foreach($categories as $index => $category_name)
+                            @foreach($categories as $category)
+                            @if($category->id === $product->category_id)
+                            <h3 class="text-sm title-font text-gray-500 tracking-widest mt-1"> {{ $category->name }}</h2>
+                            @endif
+                            @endforeach 
+                            {{-- @foreach($categories as $index => $category_name)
                             @if($index === $product->category_id)
                             <h3 class="text-sm title-font text-gray-500 tracking-widest mt-1">カテゴリー | {{ $category_name }}</h2>
                             @endif
-                            @endforeach 
+                            @endforeach  --}}
                         </div>
                         <div class="container text-right mb-2">
                             <span class="text-md text-gray-900">商品金額：</span><span class="title-font font-medium text-2xl text-gray-900">{{ number_format($product->price)}}円（税込）</span>
@@ -68,6 +73,27 @@
                                       <img src="../../images/noimage.jpg" alt="..." class="hidden">
                                       @endif
                                     </li>
+                                    <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[3]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[3] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[3] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
+                                      <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[4]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[4] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[4] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
+                                      <li class="w-1/4 liimage mr-2">
+                                        @if(!empty($imagearray[5]))
+                                        <img src="{{ config('aws.S3.url').'/'.$imagearray[5] }}" alt="..." class="thumb"data-image="{{ config('aws.S3.url').'/'.$imagearray[5] }}">
+                                        @else
+                                        <img src="../../images/noimage.jpg" alt="..." class="hidden">
+                                        @endif
+                                      </li>
                                   </ul>
                                 </div>
                             </section>

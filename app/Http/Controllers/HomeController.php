@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\Paginator;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Exclusion;
 
 class HomeController extends Controller
 {
@@ -29,8 +31,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
@@ -43,8 +46,9 @@ class HomeController extends Controller
 
     public function show(Request $request)
     {
-        $categories = config('category');
-        $exclusions = config('exclusion');
+        $categories = Category::all();
+        // $categories = config('category');
+        $exclusions = Exclusion::all(); 
         $products = Product::availableItems($request->exclusion_id)
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)

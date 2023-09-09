@@ -19,7 +19,10 @@ return new class extends Migration
             ->constrained()
             ->onUpdate('cascade')
             ->onDelete('cascade');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')
+            ->constrained()
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
             $table->unsignedBigInteger('shipping_patterns_id')
             ->constrained()
             ->onUpdate('cascade')
