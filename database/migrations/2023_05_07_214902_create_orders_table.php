@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('store_id')
-                ->constrained()
+            $table->unsignedBigInteger('store_id')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('store_id')
+                ->references('id')
+                ->on('stores')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
-            $table->foreignId('product_id')
-                ->constrained()
+                ->onDelete('set null');
+            $table->foreign('product_id')
+                ->references('id')
+                ->on('products')
                 ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->onDelete('set null');
             $table->foreignId('user_id')->nullable()
                 ->constrained()
                 ->onUpdate('cascade')

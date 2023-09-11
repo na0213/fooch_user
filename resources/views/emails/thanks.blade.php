@@ -11,7 +11,7 @@
     <p>下記のご注文ありがとうございました。発送までしばらくお待ちください。</p>
 
     @foreach ($purchasedItems as $item)
-        <p>購入内容:</p>
+        <p>ご購入内容:</p>
         <p>店舗名: {{ $item['store_name'] }}</p>
         <p>商品名: {{ $item['name'] }}</p>
         <p>購入数量: {{ $item['quantity'] }}</p>
